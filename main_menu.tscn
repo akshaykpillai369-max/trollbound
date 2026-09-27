@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://daaxi53p31kto"]
+
+[ext_resource type="Script" uid="uid://c85n23pf48k5m" path="res://main_menu.gd" id="1_06t4h"]
+[ext_resource type="Texture2D" uid="uid://7sdgkbywentp" path="res://assets/background.png" id="2_7vrkn"]
+[ext_resource type="FontFile" uid="uid://dvrkigp4rd1xo" path="res://assets/fonts/PressStart2P-Regular.ttf" id="3_fu7sn"]
+
+[node name="MainMenu" type="Control" unique_id=1143874184]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_06t4h")
+
+[node name="Background2" type="TextureRect" parent="." unique_id=58758512]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_7vrkn")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Title" type="Label" parent="." unique_id=375436525]
+layout_mode = 0
+offset_left = 252.0
+offset_top = 199.0
+offset_right = 892.0
+offset_bottom = 349.0
+theme_override_colors/font_color = Color(0.8980392, 0.8784314, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.7033931, 0.43270096, 0)
+theme_override_colors/font_outline_color = Color(0.99150366, 0.97174007, 0.95751363, 1)
+theme_override_fonts/font = ExtResource("3_fu7sn")
+theme_override_font_sizes/font_size = 64
+text = "TROLLBOUND"
+
+[node name="PlayButton" type="Button" parent="." unique_id=634956321]
+layout_mode = 0
+offset_left = 528.0
+offset_top = 291.0
+offset_right = 656.0
+offset_bottom = 341.0
+theme_override_colors/font_outline_color = Color(0.44814438, 0.416661, 0.08094307, 1)
+theme_override_fonts/font = ExtResource("3_fu7sn")
+theme_override_font_sizes/font_size = 30
+text = "PLAY"
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]

@@ -1,0 +1,14 @@
+.godot/
+.android/
+.import/
+*.import
+*.uid
+*.exe
+*.pck
+*.zip
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.tmp
+*.temp
