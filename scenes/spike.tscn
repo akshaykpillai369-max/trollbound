@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b1lcd3casttwu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8h2m0"]
+size = Vector2(30, 30)
+
+[node name="Spike" type="Area2D" unique_id=1951884892]
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1386382977]
+position = Vector2(217, -6)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-15, 15, 0, -15, 15, 15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1163586720]
+position = Vector2(217, -5)
+shape = SubResource("RectangleShape2D_8h2m0")
