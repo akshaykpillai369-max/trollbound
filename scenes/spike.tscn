@@ -1,14 +1,16 @@
 [gd_scene format=3 uid="uid://b1lcd3casttwu"]
 
+[ext_resource type="Script" uid="uid://dn7n7ofxjwelf" path="res://scripts/spike.gd" id="1_7a7y0"]
 [ext_resource type="Texture2D" uid="uid://dlmladjcnx2ar" path="res://assets/spikes.png" id="1_ljd5v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8h2m0"]
-size = Vector2(31, 30)
+size = Vector2(31, 11)
 
 [node name="Spike" type="Area2D" unique_id=1951884892]
+script = ExtResource("1_7a7y0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1163586720]
-position = Vector2(216.5, -5)
+position = Vector2(216.5, -4.5)
 shape = SubResource("RectangleShape2D_8h2m0")
 
 [node name="SpikeSprite" type="Sprite2D" parent="." unique_id=1910744408]
@@ -18,3 +20,5 @@ texture = ExtResource("1_ljd5v")
 offset = Vector2(18.964615, -205.35196)
 region_enabled = true
 region_rect = Rect2(267.1, 0, 113.599976, 353)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

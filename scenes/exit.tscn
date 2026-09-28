@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c0hegemm1vd4b"]
 
-[ext_resource type="Script" uid="uid://b32rge06jp542" path="res://scenes/exit.gd" id="1_l5n14"]
+[ext_resource type="Script" uid="uid://b32rge06jp542" path="res://scripts/exit.gd" id="1_l5n14"]
 [ext_resource type="Texture2D" uid="uid://bwd13giaqnw1n" path="res://assets/door_frame.png" id="1_uyw7u"]
 [ext_resource type="Texture2D" uid="uid://dnt7h5jpcxa3b" path="res://assets/door.png" id="2_l5n14"]
 

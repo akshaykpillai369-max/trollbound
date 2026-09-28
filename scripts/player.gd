@@ -19,12 +19,14 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * SPEED
+		$AnimatedSprite2D.play("run")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		$AnimatedSprite2D.play("idle")
 
 	move_and_slide()
 
-
-func _on_spike_body_entered(body: Node2D) -> void:
-	if body.name == 'Player':
-		get_tree().reload_current_scene()
+func die():
+	set_physics_process(false)
+	velocity = Vector2.ZERO
+	$AnimatedSprite2D.play("Death")
