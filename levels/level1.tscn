@@ -1,21 +1,21 @@
 [gd_scene format=3 uid="uid://c83jkxtcob8g"]
 
 [ext_resource type="PackedScene" uid="uid://c32sv2neaa3e4" path="res://scenes/player.tscn" id="1_ua5ty"]
-[ext_resource type="PackedScene" uid="uid://b8cuttrr7owoe" path="res://scenes/small_ground.tscn" id="2_61w3m"]
-[ext_resource type="PackedScene" uid="uid://du05dbwuj10gw" path="res://scenes/ground.tscn" id="3_pdpul"]
+[ext_resource type="PackedScene" uid="uid://b8cuttrr7owoe" path="res://scenes/ground.tscn" id="2_61w3m"]
+[ext_resource type="PackedScene" uid="uid://du05dbwuj10gw" path="res://scenes/small-ground.tscn" id="3_pdpul"]
 [ext_resource type="PackedScene" uid="uid://b1lcd3casttwu" path="res://scenes/spike.tscn" id="4_8hd6v"]
 
 [node name="Main" type="Node2D" unique_id=1390736081]
 position = Vector2(-245, -297)
 
 [node name="Player" parent="." unique_id=694940250 instance=ExtResource("1_ua5ty")]
-position = Vector2(300, 300)
+position = Vector2(295, 397)
 
 [node name="Ground" parent="." unique_id=1210730134 instance=ExtResource("2_61w3m")]
-position = Vector2(250, 500)
+position = Vector2(62, 251)
 
 [node name="Ground2" parent="." unique_id=1277270547 instance=ExtResource("3_pdpul")]
-position = Vector2(800, 700)
+position = Vector2(812, 750)
 
 [node name="Spike" parent="." unique_id=1951884892 instance=ExtResource("4_8hd6v")]
-position = Vector2(450, 475)
+position = Vector2(539, 639)

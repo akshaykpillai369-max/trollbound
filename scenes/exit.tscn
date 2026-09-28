@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://c0hegemm1vd4b"]
 
+[ext_resource type="Script" uid="uid://b32rge06jp542" path="res://scenes/exit.gd" id="1_l5n14"]
 [ext_resource type="Texture2D" uid="uid://bwd13giaqnw1n" path="res://assets/door_frame.png" id="1_uyw7u"]
 [ext_resource type="Texture2D" uid="uid://dnt7h5jpcxa3b" path="res://assets/door.png" id="2_l5n14"]
 
@@ -66,11 +67,12 @@ animations = [{
 "texture": SubResource("AtlasTexture_ddvly")
 }],
 "loop": 0,
-"name": &"default",
-"speed": 5.0
+"name": &"close_to_open",
+"speed": 10.0
 }]
 
-[node name="Exit" type="Node2D" unique_id=958841920]
+[node name="Exit" type="Area2D" unique_id=161210779]
+script = ExtResource("1_l5n14")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1276075947]
 position = Vector2(525, 288)
@@ -82,8 +84,9 @@ scale = Vector2(0.08299384, 0.10551237)
 texture = ExtResource("1_uyw7u")
 
 [node name="Door" type="AnimatedSprite2D" parent="." unique_id=1622959247]
-position = Vector2(531.00006, 288)
-scale = Vector2(0.74952215, 0.4453124)
+position = Vector2(525, 288)
+scale = Vector2(0.55896723, 0.44965273)
 sprite_frames = SubResource("SpriteFrames_8h2m0")
-frame = 6
-frame_progress = 0.6037315
+animation = &"close_to_open"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
