@@ -1,15 +1,18 @@
 [gd_scene format=3 uid="uid://du05dbwuj10gw"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fu7sn"]
-size = Vector2(450, 40)
+[ext_resource type="Texture2D" uid="uid://bs4w76atv34ub" path="res://assets/small_ground_sheet.png" id="1_7iv6s"]
 
-[node name="Ground2" type="StaticBody2D" unique_id=1277270547]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fu7sn"]
+size = Vector2(176, 40)
+
+[node name="small-ground" type="StaticBody2D" unique_id=1277270547]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=835814701]
-position = Vector2(240, -7)
+position = Vector2(498, 329)
 shape = SubResource("RectangleShape2D_fu7sn")
 
-[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1871653902]
-position = Vector2(240, -7)
-color = Color(0, 0.105882354, 1, 1)
-polygon = PackedVector2Array(-225, -20, 225, -20, 225, 20, -225, 20)
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1217801825]
+position = Vector2(504, 348)
+texture = ExtResource("1_7iv6s")
+region_enabled = true
+region_rect = Rect2(461.2, 124.600006, 219.60004, 106.2)
