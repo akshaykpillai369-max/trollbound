@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cecbjoj3gjf4j"]
+
+[ext_resource type="FontFile" uid="uid://dvrkigp4rd1xo" path="res://assets/fonts/PressStart2P-Regular.ttf" id="1_r8unp"]
+
+[node name="Level3" type="Node2D" unique_id=414041572]
+
+[node name="Label" type="Label" parent="." unique_id=1171937037]
+offset_left = 431.0
+offset_top = 176.0
+offset_right = 549.0
+offset_bottom = 251.0
+theme_override_fonts/font = ExtResource("1_r8unp")
+theme_override_font_sizes/font_size = 25
+text = "LEVEL 3
+
+COMING SOON"

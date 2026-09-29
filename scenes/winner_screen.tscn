@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://d24ggyj8i4k2e"]
+
+[ext_resource type="Script" uid="uid://dfb0xk1y4dj0g" path="res://scripts/winner_screen.gd" id="1_8sj2o"]
+[ext_resource type="FontFile" uid="uid://dvrkigp4rd1xo" path="res://assets/fonts/PressStart2P-Regular.ttf" id="1_mm6lb"]
+
+[node name="WinnerScreen" type="Control" unique_id=162556210]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_8sj2o")
+
+[node name="Background" type="ColorRect" parent="." unique_id=518485884]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 290.0
+offset_top = 160.0
+offset_right = 852.0
+offset_bottom = 454.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.06666667, 0.06666667, 0.06666667, 1)
+
+[node name="WinMessage" type="Label" parent="." unique_id=562922444]
+layout_mode = 0
+offset_left = 347.0
+offset_top = 251.0
+offset_right = 872.0
+offset_bottom = 305.0
+theme_override_fonts/font = ExtResource("1_mm6lb")
+theme_override_font_sizes/font_size = 35
+text = "LEVEL COMPLETE!"
+
+[node name="NextButton" type="Button" parent="." unique_id=287560364]
+layout_mode = 0
+offset_left = 477.0
+offset_top = 312.0
+offset_right = 735.0
+offset_bottom = 373.0
+theme_override_fonts/font = ExtResource("1_mm6lb")
+theme_override_font_sizes/font_size = 25
+text = "NEXT LEVEL"

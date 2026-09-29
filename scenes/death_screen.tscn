@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://gpqdputycit2"]
+
+[ext_resource type="Script" uid="uid://byvnddbr5v8gr" path="res://scripts/death_screen.gd" id="1_dwo6e"]
+[ext_resource type="FontFile" uid="uid://dvrkigp4rd1xo" path="res://assets/fonts/PressStart2P-Regular.ttf" id="1_uyutr"]
+
+[node name="DeathScreen" type="Control" unique_id=621254565]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_dwo6e")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1080920968]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 290.0
+offset_top = 160.0
+offset_right = 852.0
+offset_bottom = 454.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.06666667, 0.06666667, 0.06666667, 1)
+
+[node name="DeathMessage" type="Label" parent="." unique_id=26335141]
+layout_mode = 0
+offset_left = 438.0
+offset_top = 243.0
+offset_right = 718.0
+offset_bottom = 297.0
+theme_override_fonts/font = ExtResource("1_uyutr")
+theme_override_font_sizes/font_size = 35
+text = "YOU DIED"
+
+[node name="RetryButton" type="Button" parent="." unique_id=482727039]
+layout_mode = 0
+offset_left = 527.0
+offset_top = 312.0
+offset_right = 641.0
+offset_bottom = 373.0
+theme_override_fonts/font = ExtResource("1_uyutr")
+theme_override_font_sizes/font_size = 25
+text = "RETRY"
+
+[connection signal="pressed" from="RetryButton" to="." method="_on_retry_button_pressed"]

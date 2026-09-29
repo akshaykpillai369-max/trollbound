@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://d1ujj51cfp1nc"]
+
+[ext_resource type="Script" uid="uid://dcsw5lrakc764" path="res://scripts/level_2.gd" id="1_py88r"]
+[ext_resource type="PackedScene" uid="uid://c32sv2neaa3e4" path="res://scenes/player.tscn" id="1_qyb5k"]
+[ext_resource type="PackedScene" uid="uid://b8cuttrr7owoe" path="res://scenes/ground.tscn" id="2_py88r"]
+[ext_resource type="PackedScene" uid="uid://bqcxnon3k07w3" path="res://scenes/small_ground.tscn" id="3_g1dg4"]
+[ext_resource type="Script" uid="uid://doouodmklkyyy" path="res://scripts/small_ground.gd" id="5_g1dg4"]
+[ext_resource type="PackedScene" uid="uid://gpqdputycit2" path="res://scenes/death_screen.tscn" id="6_76ugp"]
+[ext_resource type="PackedScene" uid="uid://d24ggyj8i4k2e" path="res://scenes/winner_screen.tscn" id="7_e8p81"]
+[ext_resource type="PackedScene" uid="uid://c0hegemm1vd4b" path="res://scenes/exit.tscn" id="8_e8p81"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8h2m0"]
+size = Vector2(180, 51)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_unhky"]
+size = Vector2(96, 164)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n7nmp"]
+size = Vector2(31.25, 95)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hms2d"]
+size = Vector2(513.5, 176.6875)
+
+[node name="Level2" type="Node2D" unique_id=1027584091]
+script = ExtResource("1_py88r")
+
+[node name="Player" parent="." unique_id=694940250 instance=ExtResource("1_qyb5k")]
+position = Vector2(-250, 71)
+scale = Vector2(2, 2)
+
+[node name="Ground" parent="." unique_id=1210730134 instance=ExtResource("2_py88r")]
+position = Vector2(-1176, -120)
+scale = Vector2(2, 2)
+
+[node name="ReturnTrap" type="Area2D" parent="Ground" unique_id=2037403810]
+position = Vector2(407, 113)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/ReturnTrap" unique_id=1666181755]
+position = Vector2(337, 202)
+shape = SubResource("RectangleShape2D_8h2m0")
+
+[node name="Small-Ground" parent="." unique_id=580012150 instance=ExtResource("3_g1dg4")]
+position = Vector2(51, 319)
+script = ExtResource("5_g1dg4")
+
+[node name="CollisionShape2D" parent="Small-Ground" index="0" unique_id=110046272]
+position = Vector2(501, 218)
+scale = Vector2(1.4791219, 0.6666599)
+
+[node name="Sprite2D" parent="Small-Ground" index="1" unique_id=1592857141]
+position = Vector2(501, 236.99997)
+scale = Vector2(1.5875002, 0.7192623)
+
+[node name="ShrinkTrigger" type="Area2D" parent="Small-Ground" unique_id=290229388]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Small-Ground/ShrinkTrigger" unique_id=769010043]
+position = Vector2(501, 179)
+shape = SubResource("RectangleShape2D_unhky")
+
+[node name="SpeedTrigger" type="Area2D" parent="." unique_id=1478016455]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpeedTrigger" unique_id=799527395]
+position = Vector2(381, 561)
+shape = SubResource("RectangleShape2D_n7nmp")
+
+[node name="HiddenGroundTrigger" type="Area2D" parent="." unique_id=1549288792]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HiddenGroundTrigger" unique_id=754115125]
+position = Vector2(894, 527)
+shape = SubResource("RectangleShape2D_hms2d")
+
+[node name="HiddenGround" parent="." unique_id=1515339872 instance=ExtResource("2_py88r")]
+visible = false
+position = Vector2(270, 208)
+
+[node name="CollisionShape2D" parent="HiddenGround" index="0" unique_id=742498941]
+position = Vector2(624, 300)
+scale = Vector2(2.8976026, -5.061862)
+
+[node name="Polygon2D" parent="HiddenGround" index="1" unique_id=872625504]
+position = Vector2(623.99994, 325)
+scale = Vector2(1.1477779, 2.6624997)
+polygon = PackedVector2Array(-225, -20, 225, -20, 225, 0.50450134, 225, 20, 225, 20, -225, 20)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1281460759]
+
+[node name="DeathScreen" parent="UI" unique_id=621254565 instance=ExtResource("6_76ugp")]
+
+[node name="WinnerScreen" parent="UI" unique_id=162556210 instance=ExtResource("7_e8p81")]
+
+[node name="Exit" parent="." unique_id=161210779 instance=ExtResource("8_e8p81")]
+visible = false
+position = Vector2(593, 143)
+
+[connection signal="body_entered" from="Ground/ReturnTrap" to="." method="_on_return_trap_body_entered"]
+[connection signal="body_entered" from="Small-Ground/ShrinkTrigger" to="Small-Ground" method="_on_shrink_trigger_body_entered"]
+[connection signal="body_entered" from="SpeedTrigger" to="." method="_on_speed_trigger_body_entered"]
+[connection signal="body_entered" from="HiddenGroundTrigger" to="." method="_on_hidden_ground_trigger_body_entered"]
+[connection signal="pressed" from="UI/WinnerScreen/NextButton" to="UI/WinnerScreen" method="_on_next_button_pressed"]
+
+[editable path="Small-Ground"]
+[editable path="HiddenGround"]
+[editable path="UI/WinnerScreen"]
