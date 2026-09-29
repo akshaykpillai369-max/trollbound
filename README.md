@@ -8,10 +8,8 @@ The goal is simple: Reach the door, but the levels do not allow you to do that e
 
 
 
-## 🕹️ Controls
+## Controls
 
 1. Move left - Left Arrow key
 2. Move right - Right Arrow key
 3. Jump- Space Bar / Enter
-
-Made by Akshay!
