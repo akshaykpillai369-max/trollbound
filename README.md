@@ -18,8 +18,8 @@ Trollbound is inspired by the game *Level Devil*
 
 ## 🕹️ Controls
 
-Move left - Left Arrow key
-Move right - Right Arrow key
-Jump- Space Bar / Enter
+1. Move left - Left Arrow key
+2. Move right - Right Arrow key
+3. Jump- Space Bar / Enter
 
 Made by Akshay!
