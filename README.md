@@ -6,6 +6,14 @@ The goal is simple: Reach the door, but the levels do not allow you to do that e
 
 <img width="630" height="357" alt="image" src="https://github.com/user-attachments/assets/db0a2fd3-edcb-42d5-9a92-d09ab11fb402" />
 
+### Level 1
+<img width="637" height="350" alt="image" src="https://github.com/user-attachments/assets/85470135-6b87-4fe4-be29-3bfaa158c9ce" />
+
+### Level 2
+<img width="627" height="346" alt="image" src="https://github.com/user-attachments/assets/b64e7751-e441-4140-b8c3-1c5d241e8599" />
+
+
+
 
 
 ## Controls
