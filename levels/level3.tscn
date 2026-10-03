@@ -1,16 +1,77 @@
 [gd_scene format=3 uid="uid://cecbjoj3gjf4j"]
 
-[ext_resource type="FontFile" uid="uid://dvrkigp4rd1xo" path="res://assets/fonts/PressStart2P-Regular.ttf" id="1_r8unp"]
+[ext_resource type="Script" uid="uid://bguyaksn6wur5" path="res://scripts/level_3.gd" id="1_aaqj5"]
+[ext_resource type="PackedScene" uid="uid://c32sv2neaa3e4" path="res://scenes/player.tscn" id="1_kvvkh"]
+[ext_resource type="PackedScene" uid="uid://b8cuttrr7owoe" path="res://scenes/ground.tscn" id="2_aaqj5"]
+[ext_resource type="PackedScene" uid="uid://c0hegemm1vd4b" path="res://scenes/exit.tscn" id="4_0fm5q"]
+[ext_resource type="PackedScene" uid="uid://b1lcd3casttwu" path="res://scenes/spike.tscn" id="4_cpie4"]
+[ext_resource type="PackedScene" uid="uid://gpqdputycit2" path="res://scenes/death_screen.tscn" id="6_1xfnq"]
+[ext_resource type="PackedScene" uid="uid://d24ggyj8i4k2e" path="res://scenes/winner_screen.tscn" id="7_6uckl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n7nmp"]
+size = Vector2(97.75, 295)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_unhky"]
+size = Vector2(43, 122)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8h2m0"]
+size = Vector2(46.125, 182)
 
 [node name="Level3" type="Node2D" unique_id=414041572]
+script = ExtResource("1_aaqj5")
 
-[node name="Label" type="Label" parent="." unique_id=1171937037]
-offset_left = 431.0
-offset_top = 176.0
-offset_right = 549.0
-offset_bottom = 251.0
-theme_override_fonts/font = ExtResource("1_r8unp")
-theme_override_font_sizes/font_size = 25
-text = "LEVEL 3
+[node name="Player" parent="." unique_id=694940250 instance=ExtResource("1_kvvkh")]
+position = Vector2(-268.99997, 0.9999995)
+scale = Vector2(2.5, 2.5)
+death_y = 80.0
 
-COMING SOON"
+[node name="Ground" parent="." unique_id=1210730134 instance=ExtResource("2_aaqj5")]
+position = Vector2(-1414, -114)
+scale = Vector2(2, 2)
+
+[node name="MovingGround" parent="." unique_id=931610117 instance=ExtResource("2_aaqj5")]
+position = Vector2(-1342, -114)
+scale = Vector2(2, 2)
+
+[node name="PlatformDropTrigger" type="Area2D" parent="." unique_id=524362727]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformDropTrigger" unique_id=1881224878]
+position = Vector2(244, 466)
+shape = SubResource("RectangleShape2D_n7nmp")
+
+[node name="ShrinkingGround" parent="." unique_id=484715487 instance=ExtResource("2_aaqj5")]
+position = Vector2(-443, -115)
+scale = Vector2(2, 2)
+
+[node name="ShrinkTrigger" type="Area2D" parent="ShrinkingGround" unique_id=403020851]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShrinkingGround/ShrinkTrigger" unique_id=779162190]
+position = Vector2(471, 282.5)
+shape = SubResource("RectangleShape2D_unhky")
+
+[node name="Spike" parent="." unique_id=1951884892 instance=ExtResource("4_cpie4")]
+position = Vector2(771, 573)
+
+[node name="Exit" parent="." unique_id=161210779 instance=ExtResource("4_0fm5q")]
+position = Vector2(592, 236)
+
+[node name="SpikeTrigger" type="Area2D" parent="." unique_id=1950539818]
+position = Vector2(-17, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpikeTrigger" unique_id=926455496]
+position = Vector2(934, 480)
+shape = SubResource("RectangleShape2D_8h2m0")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1574047130]
+
+[node name="DeathScreen" parent="UI" unique_id=621254565 instance=ExtResource("6_1xfnq")]
+
+[node name="WinnerScreen" parent="UI" unique_id=162556210 instance=ExtResource("7_6uckl")]
+
+[connection signal="body_entered" from="PlatformDropTrigger" to="." method="_on_platform_drop_trigger_body_entered"]
+[connection signal="body_entered" from="ShrinkingGround/ShrinkTrigger" to="." method="_on_shrink_trigger_body_entered"]
+[connection signal="body_entered" from="SpikeTrigger" to="." method="_on_spike_trigger_body_entered"]
+[connection signal="pressed" from="UI/WinnerScreen/NextButton" to="." method="_on_next_button_pressed"]
+
+[editable path="ShrinkingGround"]
+[editable path="UI/WinnerScreen"]

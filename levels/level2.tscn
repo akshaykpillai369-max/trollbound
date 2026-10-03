@@ -27,6 +27,7 @@ script = ExtResource("1_py88r")
 [node name="Player" parent="." unique_id=694940250 instance=ExtResource("1_qyb5k")]
 position = Vector2(-250, 71)
 scale = Vector2(2, 2)
+death_y = 200.0
 
 [node name="Ground" parent="." unique_id=1210730134 instance=ExtResource("2_py88r")]
 position = Vector2(-1176, -120)

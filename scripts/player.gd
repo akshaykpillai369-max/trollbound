@@ -4,6 +4,7 @@ extends CharacterBody2D
 const SPEED = 250.0
 var current_speed = SPEED
 const JUMP_VELOCITY = -400.0
+@export var death_y = 382.0
 
 
 func _physics_process(delta: float) -> void:
@@ -26,7 +27,7 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.play("idle")
 
 	move_and_slide()
-	if position.y > 380:
+	if position.y > death_y:
 		die()
 
 func die():
@@ -35,11 +36,3 @@ func die():
 	$AnimatedSprite2D.play("Death")
 	await $AnimatedSprite2D.animation_finished
 	get_tree().current_scene.get_node("UI/DeathScreen").show()
-
-
-func _on_troll_trigger_body_entered(body: Node2D) -> void:
-	if body.name == "Player":
-		var troll_ground = get_parent().get_node_or_null("TrollGround")
-		
-		if troll_ground:
-			troll_ground.queue_free()

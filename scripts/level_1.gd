@@ -27,3 +27,7 @@ func _on_troll_trigger_2_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		$TrollSpike.show()
 		$TrollSpike.monitoring = true
+
+func _on_troll_trigger_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		$TrollGround.queue_free()
