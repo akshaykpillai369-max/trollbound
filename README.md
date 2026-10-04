@@ -49,7 +49,7 @@ While making Trollbound, I learned about:
 
 ## Screenshots
 
-| Main Menu | Level 2 |
+| Main Menu | Level 1 |
 | :---: | :---: |
 | ![Main Menu](screenshots/main_menu.png) | ![Level 1](screenshots/level_1.png) |
 
