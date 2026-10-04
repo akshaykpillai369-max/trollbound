@@ -32,3 +32,8 @@ func _on_troll_trigger_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		$PlatformSound.play()
 		$TrollGround.queue_free()
+
+
+func _on_pause_button_pressed() -> void:
+	$UI/PauseMenu.show()
+	get_tree().paused = true

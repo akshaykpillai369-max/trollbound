@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://bqcxnon3k07w3" path="res://scenes/small_ground.tscn" id="6_cc5tm"]
 [ext_resource type="PackedScene" uid="uid://gpqdputycit2" path="res://scenes/death_screen.tscn" id="8_mdw0g"]
 [ext_resource type="PackedScene" uid="uid://d24ggyj8i4k2e" path="res://scenes/winner_screen.tscn" id="9_mdw0g"]
+[ext_resource type="PackedScene" uid="uid://djmbhmvqa6m5" path="res://scenes/pause_menu.tscn" id="10_gh4cy"]
+[ext_resource type="FontFile" uid="uid://dvrkigp4rd1xo" path="res://assets/fonts/PressStart2P-Regular.ttf" id="11_qi51e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n7nmp"]
 size = Vector2(63, 137)
@@ -86,12 +88,29 @@ shape = SubResource("RectangleShape2D_unhky")
 
 [node name="WinnerScreen" parent="UI" unique_id=162556210 instance=ExtResource("9_mdw0g")]
 
+[node name="PauseMenu" parent="UI" unique_id=431796501 instance=ExtResource("10_gh4cy")]
+process_mode = 2
+visible = false
+position = Vector2(30, -7)
+
+[node name="PauseButton" type="Button" parent="UI" unique_id=1196807298]
+offset_left = 990.0
+offset_top = 3.0
+offset_right = 1148.0
+offset_bottom = 43.0
+theme_override_fonts/font = ExtResource("11_qi51e")
+theme_override_font_sizes/font_size = 20
+text = "PAUSE"
+
 [node name="Spike2" parent="." unique_id=1751770871 instance=ExtResource("5_8s3b3")]
 position = Vector2(506, 624)
 
 [connection signal="body_entered" from="HoverGround/HoverTrigger" to="." method="_on_hover_trigger_body_entered"]
 [connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]
 [connection signal="body_entered" from="ReturnSpike/ControlResetTrigger" to="." method="_on_control_reset_trigger_body_entered"]
+[connection signal="pressed" from="UI/WinnerScreen/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="UI/PauseButton" to="." method="_on_pause_button_pressed"]
 
 [editable path="Exit"]
 [editable path="ReturnSpike"]
+[editable path="UI/WinnerScreen"]

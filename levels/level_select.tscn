@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://br3orbab11yvd"]
+
+[ext_resource type="FontFile" uid="uid://dvrkigp4rd1xo" path="res://assets/fonts/PressStart2P-Regular.ttf" id="1_mk87e"]
+[ext_resource type="Script" uid="uid://djy7jb30ne7e0" path="res://scripts/level_select.gd" id="1_ygvyp"]
+
+[node name="LevelSelect" type="Node2D" unique_id=1038694459]
+script = ExtResource("1_ygvyp")
+
+[node name="Title" type="Label" parent="." unique_id=1077587472]
+offset_left = 410.0
+offset_top = 18.0
+offset_right = 770.0
+offset_bottom = 48.0
+theme_override_fonts/font = ExtResource("1_mk87e")
+theme_override_font_sizes/font_size = 30
+text = "SELECT LEVEL"
+
+[node name="LevelButtons" type="HBoxContainer" parent="." unique_id=1541848498]
+offset_left = 53.0
+offset_top = 89.0
+offset_right = 1115.0
+offset_bottom = 222.0
+theme_override_constants/separation = 40
+
+[node name="Level1Button" type="Button" parent="LevelButtons" unique_id=1759735318]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_mk87e")
+theme_override_font_sizes/font_size = 15
+text = "LEVEL1"
+
+[node name="Level2Button" type="Button" parent="LevelButtons" unique_id=709833828]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_mk87e")
+theme_override_font_sizes/font_size = 15
+text = "LEVEL2"
+
+[node name="Level3Button" type="Button" parent="LevelButtons" unique_id=588220963]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_mk87e")
+theme_override_font_sizes/font_size = 15
+text = "LEVEL3
+"
+
+[node name="Level4Button" type="Button" parent="LevelButtons" unique_id=1557379566]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_mk87e")
+theme_override_font_sizes/font_size = 15
+text = "LEVEL4
+"
+
+[node name="Level5Button" type="Button" parent="LevelButtons" unique_id=148127108]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_mk87e")
+theme_override_font_sizes/font_size = 15
+disabled = true
+text = "LEVEL5
+"
+
+[connection signal="pressed" from="LevelButtons/Level1Button" to="." method="_on_level_1_button_pressed"]
+[connection signal="pressed" from="LevelButtons/Level2Button" to="." method="_on_level_2_button_pressed"]
+[connection signal="pressed" from="LevelButtons/Level3Button" to="." method="_on_level_3_button_pressed"]
+[connection signal="pressed" from="LevelButtons/Level4Button" to="." method="_on_level_4_button_pressed"]
+[connection signal="pressed" from="LevelButtons/Level5Button" to="." method="_on_level_5_button_pressed"]

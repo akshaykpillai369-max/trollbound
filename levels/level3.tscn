@@ -8,7 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://gpqdputycit2" path="res://scenes/death_screen.tscn" id="6_1xfnq"]
 [ext_resource type="PackedScene" uid="uid://d24ggyj8i4k2e" path="res://scenes/winner_screen.tscn" id="7_6uckl"]
 [ext_resource type="AudioStream" uid="uid://b6n2wnkwb30lc" path="res://assets/sounds/overworld_theme.ogg" id="8_6uckl"]
+[ext_resource type="PackedScene" uid="uid://djmbhmvqa6m5" path="res://scenes/pause_menu.tscn" id="8_cpuyl"]
 [ext_resource type="AudioStream" uid="uid://cco4yb4x1iler" path="res://assets/sounds/platform.wav" id="9_d6jip"]
+[ext_resource type="FontFile" uid="uid://dvrkigp4rd1xo" path="res://assets/fonts/PressStart2P-Regular.ttf" id="9_mf7v1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n7nmp"]
 size = Vector2(97.75, 295)
@@ -74,6 +76,20 @@ shape = SubResource("RectangleShape2D_8h2m0")
 
 [node name="WinnerScreen" parent="UI" unique_id=162556210 instance=ExtResource("7_6uckl")]
 
+[node name="PauseMenu" parent="UI" unique_id=431796501 instance=ExtResource("8_cpuyl")]
+process_mode = 2
+visible = false
+position = Vector2(30, -7)
+
+[node name="PauseButton" type="Button" parent="UI" unique_id=1076266160]
+offset_left = 990.0
+offset_top = 3.0
+offset_right = 1148.0
+offset_bottom = 43.0
+theme_override_fonts/font = ExtResource("9_mf7v1")
+theme_override_font_sizes/font_size = 20
+text = "PAUSE"
+
 [node name="LevelMusic" type="AudioStreamPlayer2D" parent="." unique_id=2119693467]
 position = Vector2(477, 312)
 stream = ExtResource("8_6uckl")
@@ -90,6 +106,7 @@ rotation = 1.584759
 [connection signal="body_entered" from="ShrinkingGround/ShrinkTrigger" to="." method="_on_shrink_trigger_body_entered"]
 [connection signal="body_entered" from="SpikeTrigger" to="." method="_on_spike_trigger_body_entered"]
 [connection signal="pressed" from="UI/WinnerScreen/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="UI/PauseButton" to="." method="_on_pause_button_pressed"]
 
 [editable path="ShrinkingGround"]
 [editable path="UI/WinnerScreen"]

@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://djmbhmvqa6m5"]
+
+[ext_resource type="Script" uid="uid://clp0pgmx7kge2" path="res://scripts/pause_menu.gd" id="1_myx47"]
+[ext_resource type="FontFile" uid="uid://dvrkigp4rd1xo" path="res://assets/fonts/PressStart2P-Regular.ttf" id="2_kukqi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n7nmp"]
+bg_color = Color(0, 0, 0, 0.5882353)
+
+[node name="PauseMenu" type="Node2D" unique_id=431796501]
+script = ExtResource("1_myx47")
+
+[node name="PausePanel" type="Panel" parent="." unique_id=1554199510]
+offset_left = 236.0
+offset_top = 64.0
+offset_right = 846.0
+offset_bottom = 561.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_n7nmp")
+
+[node name="PauseTitle" type="Label" parent="PausePanel" unique_id=250579310]
+layout_mode = 0
+offset_left = 201.0
+offset_top = 46.0
+offset_right = 381.0
+offset_bottom = 76.0
+theme_override_fonts/font = ExtResource("2_kukqi")
+theme_override_font_sizes/font_size = 30
+text = "PAUSED"
+
+[node name="ResumeButton" type="Button" parent="PausePanel" unique_id=434799809]
+layout_mode = 0
+offset_left = 189.0
+offset_top = 110.0
+offset_right = 377.0
+offset_bottom = 202.0
+theme_override_fonts/font = ExtResource("2_kukqi")
+theme_override_font_sizes/font_size = 30
+text = "RESUME"
+
+[node name="RestartButton2" type="Button" parent="PausePanel" unique_id=930886769]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 185.0
+offset_right = 398.0
+offset_bottom = 277.0
+theme_override_fonts/font = ExtResource("2_kukqi")
+theme_override_font_sizes/font_size = 30
+text = "RESTART"
+
+[node name="LevelSelectButton3" type="Button" parent="PausePanel" unique_id=1204927667]
+layout_mode = 0
+offset_left = 121.0
+offset_top = 265.0
+offset_right = 489.0
+offset_bottom = 357.0
+theme_override_fonts/font = ExtResource("2_kukqi")
+theme_override_font_sizes/font_size = 30
+text = "LEVEL SELECT"
+
+[node name="MainMenuButton4" type="Button" parent="PausePanel" unique_id=696445831]
+layout_mode = 0
+offset_left = 121.0
+offset_top = 347.0
+offset_right = 489.0
+offset_bottom = 439.0
+theme_override_fonts/font = ExtResource("2_kukqi")
+theme_override_font_sizes/font_size = 30
+text = "MAIN MENU
+"
+
+[connection signal="pressed" from="PausePanel/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="PausePanel/RestartButton2" to="." method="_on_restart_button_2_pressed"]
+[connection signal="pressed" from="PausePanel/LevelSelectButton3" to="." method="_on_level_select_button_3_pressed"]
+[connection signal="pressed" from="PausePanel/MainMenuButton4" to="." method="_on_main_menu_button_4_pressed"]
