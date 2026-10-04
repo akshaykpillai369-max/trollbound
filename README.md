@@ -2,25 +2,24 @@
 
 Trollbound is a level-devil-inspired, short, trap-filled 2D platformer built in **Godot 4** for the **Stardance Challenge**.
 
+<img src = screenshots/main_menu.png>
+
 The goal is simple: Reach the door, but the levels do not allow you to do that easily.
-
-<img width="630" height="357" alt="image" src="https://github.com/user-attachments/assets/db0a2fd3-edcb-42d5-9a92-d09ab11fb402" />
-
-### Level 1
-<img width="637" height="350" alt="image" src="https://github.com/user-attachments/assets/85470135-6b87-4fe4-be29-3bfaa158c9ce" />
-
-### Level 2
-<img width="627" height="346" alt="image" src="https://github.com/user-attachments/assets/b64e7751-e441-4140-b8c3-1c5d241e8599" />
-
-
-
-
 
 ## Controls
 
 1. Move left - Left Arrow key
 2. Move right - Right Arrow key
 3. Jump- Space Bar / Enter
+
+## Features
+
+- Game developed in 2D
+- Trap-filled and addictive
+- Unexpected challenges
+- Sound Effects
+- Music in levels and main menu
+- Settings to manage music
 
 
 ## Why I made this
@@ -47,8 +46,17 @@ While making Trollbound, I learned about:
 - Designing traps and challenges
 - Organizing a complete Godot project
 
-## Features
 
-- Game developed in 2D
-- Trap-filled and addictive
-- unexpected challenges
+
+
+## Screenshots
+
+| Level 1 | Level 2 |
+| :---: | :---: |
+| ![Level 1](screenshots/level_1.png) | ![Level 1](screenshots/level_2.png) |
+
+| Level 3 | Level 4 |
+| :---: | :---: |
+| ![Level 3](screenshots/level_3.png) | ![Level 4](screenshots/level_4.png) |
+
+---
