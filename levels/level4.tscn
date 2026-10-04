@@ -1,14 +1,97 @@
 [gd_scene format=3 uid="uid://yc0cdf4xqej0"]
 
-[ext_resource type="FontFile" uid="uid://dvrkigp4rd1xo" path="res://assets/fonts/PressStart2P-Regular.ttf" id="1_fwt2v"]
+[ext_resource type="Script" uid="uid://dejbreauvnk7d" path="res://scripts/level_4.gd" id="1_mj76i"]
+[ext_resource type="AudioStream" uid="uid://b6n2wnkwb30lc" path="res://assets/sounds/overworld_theme.ogg" id="2_3cb6x"]
+[ext_resource type="PackedScene" uid="uid://c32sv2neaa3e4" path="res://scenes/player.tscn" id="2_lpgdq"]
+[ext_resource type="PackedScene" uid="uid://b8cuttrr7owoe" path="res://scenes/ground.tscn" id="3_1jw75"]
+[ext_resource type="PackedScene" uid="uid://c0hegemm1vd4b" path="res://scenes/exit.tscn" id="4_8s3b3"]
+[ext_resource type="PackedScene" uid="uid://b1lcd3casttwu" path="res://scenes/spike.tscn" id="5_8s3b3"]
+[ext_resource type="PackedScene" uid="uid://bqcxnon3k07w3" path="res://scenes/small_ground.tscn" id="6_cc5tm"]
+[ext_resource type="PackedScene" uid="uid://gpqdputycit2" path="res://scenes/death_screen.tscn" id="8_mdw0g"]
+[ext_resource type="PackedScene" uid="uid://d24ggyj8i4k2e" path="res://scenes/winner_screen.tscn" id="9_mdw0g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n7nmp"]
+size = Vector2(63, 137)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_unhky"]
+size = Vector2(73, 20.25)
 
 [node name="Level4" type="Node2D" unique_id=1775080801]
+script = ExtResource("1_mj76i")
 
-[node name="Label" type="Label" parent="." unique_id=1851418392]
-offset_left = 357.0
-offset_top = 176.0
-offset_right = 687.0
-offset_bottom = 274.0
-theme_override_fonts/font = ExtResource("1_fwt2v")
-theme_override_font_sizes/font_size = 30
-text = "coming soon"
+[node name="LevelMusic" type="AudioStreamPlayer2D" parent="." unique_id=336884738]
+stream = ExtResource("2_3cb6x")
+
+[node name="Player" parent="." unique_id=694940250 instance=ExtResource("2_lpgdq")]
+position = Vector2(333, 219)
+death_y = 400.0
+reverse_controls = true
+
+[node name="VerticalGround" parent="." unique_id=1210730134 instance=ExtResource("3_1jw75")]
+position = Vector2(848, 121.000015)
+rotation = 1.5760323
+
+[node name="VerticalGround2" parent="." unique_id=2133260130 instance=ExtResource("3_1jw75")]
+position = Vector2(1523.9999, -14.000002)
+rotation = 1.5760323
+
+[node name="LandingGround" parent="." unique_id=213804693 instance=ExtResource("3_1jw75")]
+position = Vector2(-89, 283)
+
+[node name="Spike" parent="." unique_id=1951884892 instance=ExtResource("5_8s3b3")]
+position = Vector2(215, 495)
+
+[node name="DeathHoverGround" parent="." unique_id=580012150 instance=ExtResource("6_cc5tm")]
+position = Vector2(-71, 257)
+
+[node name="Ground" parent="." unique_id=1067588022 instance=ExtResource("3_1jw75")]
+position = Vector2(356, 283)
+
+[node name="HoverGround" parent="." unique_id=895661882 instance=ExtResource("6_cc5tm")]
+visible = false
+position = Vector2(331, 396)
+
+[node name="HoverTrigger" type="Area2D" parent="HoverGround" unique_id=811592492]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HoverGround/HoverTrigger" unique_id=260090472]
+position = Vector2(487.5, 185.5)
+shape = SubResource("RectangleShape2D_n7nmp")
+
+[node name="Spike2" parent="HoverGround" unique_id=76937195 instance=ExtResource("5_8s3b3")]
+position = Vector2(402, 239)
+scale = Vector2(0.5, 0.5)
+
+[node name="Exit" parent="." unique_id=161210779 instance=ExtResource("4_8s3b3")]
+position = Vector2(578, 292)
+script = null
+
+[node name="DoorSound" parent="Exit" index="3" unique_id=1357040753]
+position = Vector2(-42, -32)
+
+[node name="ReturnSpike" parent="." unique_id=774394989 instance=ExtResource("5_8s3b3")]
+visible = false
+position = Vector2(604, 625)
+monitoring = false
+
+[node name="ControlResetTrigger" type="Area2D" parent="ReturnSpike" unique_id=1689709555]
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ReturnSpike/ControlResetTrigger" unique_id=606459986]
+position = Vector2(163.5, 2.125)
+shape = SubResource("RectangleShape2D_unhky")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1595166159]
+
+[node name="DeathScreen" parent="UI" unique_id=621254565 instance=ExtResource("8_mdw0g")]
+
+[node name="WinnerScreen" parent="UI" unique_id=162556210 instance=ExtResource("9_mdw0g")]
+
+[node name="Spike2" parent="." unique_id=1751770871 instance=ExtResource("5_8s3b3")]
+position = Vector2(506, 624)
+
+[connection signal="body_entered" from="HoverGround/HoverTrigger" to="." method="_on_hover_trigger_body_entered"]
+[connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]
+[connection signal="body_entered" from="ReturnSpike/ControlResetTrigger" to="." method="_on_control_reset_trigger_body_entered"]
+
+[editable path="Exit"]
+[editable path="ReturnSpike"]

@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://c0hegemm1vd4b" path="res://scenes/exit.tscn" id="4_ua5ty"]
 [ext_resource type="PackedScene" uid="uid://gpqdputycit2" path="res://scenes/death_screen.tscn" id="6_8hd6v"]
 [ext_resource type="PackedScene" uid="uid://d24ggyj8i4k2e" path="res://scenes/winner_screen.tscn" id="7_8hd6v"]
+[ext_resource type="AudioStream" uid="uid://b6n2wnkwb30lc" path="res://assets/sounds/overworld_theme.ogg" id="8_045es"]
+[ext_resource type="AudioStream" uid="uid://cco4yb4x1iler" path="res://assets/sounds/platform.wav" id="9_omn1t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n7nmp"]
 size = Vector2(127.75, 264)
@@ -28,12 +30,12 @@ func _process(delta: float) -> void:
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pdpul"]
 size = Vector2(24, 216.75)
 
-[node name="Main" type="Node2D" unique_id=1390736081]
+[node name="Level1" type="Node2D" unique_id=1390736081]
 position = Vector2(-245, -297)
 script = ExtResource("1_61w3m")
 
 [node name="Player" parent="." unique_id=694940250 instance=ExtResource("1_ua5ty")]
-position = Vector2(-72.99999, 213.00002)
+position = Vector2(-29.999996, 243.00002)
 scale = Vector2(2.5, 2.5)
 
 [node name="Ground" parent="." unique_id=1210730134 instance=ExtResource("2_61w3m")]
@@ -56,6 +58,14 @@ monitoring = false
 [node name="Exit" parent="." unique_id=161210779 instance=ExtResource("4_ua5ty")]
 position = Vector2(832, 532)
 
+[node name="CloseGround" parent="." unique_id=786065477 instance=ExtResource("2_61w3m")]
+position = Vector2(629, 93)
+rotation = 1.584759
+
+[node name="CloseGround2" parent="." unique_id=1882387975 instance=ExtResource("2_61w3m")]
+position = Vector2(1790.0001, 68)
+rotation = 1.584759
+
 [node name="TrollTrigger" type="Area2D" parent="." unique_id=634884551]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TrollTrigger" unique_id=473338978]
@@ -75,6 +85,13 @@ shape = SubResource("RectangleShape2D_pdpul")
 [node name="DeathScreen" parent="UI" unique_id=621254565 instance=ExtResource("6_8hd6v")]
 
 [node name="WinnerScreen" parent="UI" unique_id=162556210 instance=ExtResource("7_8hd6v")]
+
+[node name="LevelMusic" type="AudioStreamPlayer2D" parent="." unique_id=812107027]
+stream = ExtResource("8_045es")
+
+[node name="PlatformSound" type="AudioStreamPlayer2D" parent="." unique_id=2055618336]
+stream = ExtResource("9_omn1t")
+volume_db = 24.0
 
 [connection signal="body_entered" from="TrollTrigger" to="." method="_on_troll_trigger_body_entered"]
 [connection signal="body_entered" from="TrollTrigger2" to="." method="_on_troll_trigger_2_body_entered"]

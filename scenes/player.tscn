@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://cirr75mxcs701" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="Texture2D" uid="uid://cshjolcjh48n7" path="res://assets/player_sheet.png" id="2_g2els"]
+[ext_resource type="AudioStream" uid="uid://c041etw3cvxoe" path="res://assets/sounds/jump.wav" id="3_qhqgy"]
+[ext_resource type="AudioStream" uid="uid://b3o6kr8t87yol" path="res://assets/sounds/run.ogg" id="4_dqkch"]
+[ext_resource type="AudioStream" uid="uid://bhqx2u4vv7av1" path="res://assets/sounds/death.mp3" id="5_qlg0r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n7nmp"]
 size = Vector2(15, 22)
@@ -136,3 +139,14 @@ scale = Vector2(0.15610865, 0.16203563)
 sprite_frames = SubResource("SpriteFrames_n7nmp")
 animation = &"idle"
 autoplay = "idle"
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="." unique_id=708326049]
+stream = ExtResource("3_qhqgy")
+
+[node name="RunSound" type="AudioStreamPlayer2D" parent="." unique_id=6421678]
+stream = ExtResource("4_dqkch")
+volume_db = 24.0
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="." unique_id=611649115]
+stream = ExtResource("5_qlg0r")
+volume_db = 24.0

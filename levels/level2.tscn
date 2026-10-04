@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://gpqdputycit2" path="res://scenes/death_screen.tscn" id="6_76ugp"]
 [ext_resource type="PackedScene" uid="uid://d24ggyj8i4k2e" path="res://scenes/winner_screen.tscn" id="7_e8p81"]
 [ext_resource type="PackedScene" uid="uid://c0hegemm1vd4b" path="res://scenes/exit.tscn" id="8_e8p81"]
+[ext_resource type="AudioStream" uid="uid://b6n2wnkwb30lc" path="res://assets/sounds/overworld_theme.ogg" id="9_55gdq"]
+[ext_resource type="AudioStream" uid="uid://cco4yb4x1iler" path="res://assets/sounds/platform.wav" id="10_crte6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8h2m0"]
 size = Vector2(180, 51)
@@ -93,11 +95,27 @@ polygon = PackedVector2Array(-225, -20, 225, -20, 225, 0.50450134, 225, 20, 225,
 visible = false
 position = Vector2(593, 143)
 
+[node name="LevelMusic" type="AudioStreamPlayer2D" parent="." unique_id=1701376563]
+position = Vector2(347, 251)
+stream = ExtResource("9_55gdq")
+
+[node name="PlatformSound" type="AudioStreamPlayer2D" parent="." unique_id=892407025]
+stream = ExtResource("10_crte6")
+volume_db = 24.0
+
+[node name="CloseGround" parent="." unique_id=401947264 instance=ExtResource("2_py88r")]
+position = Vector2(367.00006, -155)
+rotation = 1.584759
+
+[node name="CloseGround2" parent="." unique_id=900400852 instance=ExtResource("2_py88r")]
+position = Vector2(1539.0001, -156)
+rotation = 1.584759
+
 [connection signal="body_entered" from="Ground/ReturnTrap" to="." method="_on_return_trap_body_entered"]
 [connection signal="body_entered" from="Small-Ground/ShrinkTrigger" to="Small-Ground" method="_on_shrink_trigger_body_entered"]
 [connection signal="body_entered" from="SpeedTrigger" to="." method="_on_speed_trigger_body_entered"]
 [connection signal="body_entered" from="HiddenGroundTrigger" to="." method="_on_hidden_ground_trigger_body_entered"]
-[connection signal="pressed" from="UI/WinnerScreen/NextButton" to="UI/WinnerScreen" method="_on_next_button_pressed"]
+[connection signal="pressed" from="UI/WinnerScreen/NextButton" to="." method="_on_next_button_pressed"]
 
 [editable path="Small-Ground"]
 [editable path="HiddenGround"]

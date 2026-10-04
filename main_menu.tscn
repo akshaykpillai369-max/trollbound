@@ -3,6 +3,15 @@
 [ext_resource type="Script" uid="uid://c85n23pf48k5m" path="res://main_menu.gd" id="1_06t4h"]
 [ext_resource type="Texture2D" uid="uid://7sdgkbywentp" path="res://assets/background.png" id="2_7vrkn"]
 [ext_resource type="FontFile" uid="uid://dvrkigp4rd1xo" path="res://assets/fonts/PressStart2P-Regular.ttf" id="3_fu7sn"]
+[ext_resource type="AudioStream" uid="uid://cf6c168f6tf5l" path="res://assets/sounds/unknown_planet.mp3" id="4_jix8l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jix8l"]
+bg_color = Color(0.09411765, 0.09411765, 0.09411765, 0.8627451)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_detail = 10
 
 [node name="MainMenu" type="Control" unique_id=1143874184]
 layout_mode = 3
@@ -48,4 +57,73 @@ theme_override_fonts/font = ExtResource("3_fu7sn")
 theme_override_font_sizes/font_size = 30
 text = "PLAY"
 
+[node name="MenuMusic" type="AudioStreamPlayer2D" parent="." unique_id=1592816891]
+stream = ExtResource("4_jix8l")
+autoplay = true
+
+[node name="SettingsButton" type="Button" parent="." unique_id=1036801133]
+layout_mode = 0
+offset_left = 471.0
+offset_top = 358.0
+offset_right = 719.0
+offset_bottom = 419.0
+theme_override_fonts/font = ExtResource("3_fu7sn")
+theme_override_font_sizes/font_size = 30
+text = "SETTINGS"
+
+[node name="SettingsPanel" type="Panel" parent="." unique_id=2085215172]
+visible = false
+layout_mode = 0
+offset_left = 172.0
+offset_top = 119.0
+offset_right = 959.0
+offset_bottom = 566.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_jix8l")
+
+[node name="SettingsLabel" type="Label" parent="SettingsPanel" unique_id=1951316369]
+layout_mode = 0
+offset_left = 276.0
+offset_top = 35.0
+offset_right = 516.0
+offset_bottom = 78.0
+theme_override_fonts/font = ExtResource("3_fu7sn")
+theme_override_font_sizes/font_size = 30
+text = "SETTINGS"
+
+[node name="MainMenuMusicButton" type="CheckButton" parent="SettingsPanel" unique_id=275186490]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 135.0
+offset_right = 648.0
+offset_bottom = 173.0
+theme_override_fonts/font = ExtResource("3_fu7sn")
+theme_override_font_sizes/font_size = 30
+button_pressed = true
+text = "MAIN MENU MUSIC"
+
+[node name="LevelMusicButton" type="CheckButton" parent="SettingsPanel" unique_id=101262470]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 191.0
+offset_right = 605.0
+offset_bottom = 229.0
+theme_override_fonts/font = ExtResource("3_fu7sn")
+theme_override_font_sizes/font_size = 30
+button_pressed = true
+text = "LEVEL MUSIC"
+
+[node name="BackButton" type="Button" parent="SettingsPanel" unique_id=1957324596]
+layout_mode = 0
+offset_left = 348.0
+offset_top = 362.0
+offset_right = 476.0
+offset_bottom = 400.0
+theme_override_fonts/font = ExtResource("3_fu7sn")
+theme_override_font_sizes/font_size = 30
+text = "BACK"
+
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="toggled" from="SettingsPanel/MainMenuMusicButton" to="." method="_on_main_menu_music_button_toggled"]
+[connection signal="toggled" from="SettingsPanel/LevelMusicButton" to="." method="_on_level_music_button_toggled"]
+[connection signal="pressed" from="SettingsPanel/BackButton" to="." method="_on_back_button_pressed"]

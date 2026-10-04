@@ -3,7 +3,8 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	if Settings.level_music_enabled:
+		$LevelMusic.play()
 
 
 
@@ -19,6 +20,7 @@ func _on_speed_trigger_body_entered(body: Node2D) -> void:
 
 func _on_return_trap_body_entered(body: Node2D) -> void:
 	if body.name == "Player" and body.velocity.x < 0:
+		$PlatformSound.play()
 		$Ground.queue_free()
 
 

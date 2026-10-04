@@ -13,6 +13,8 @@ func _ready() -> void:
 	collision.shape.size = Vector2(450, 40)
 	
 	collision_start_position = collision.position
+	if Settings.level_music_enabled:
+		$LevelMusic.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -22,6 +24,7 @@ func _process(delta: float) -> void:
 func _on_platform_drop_trigger_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		var tween = create_tween()
+		$PlatformSound.play()
 		tween.tween_property($MovingGround, "position:y", $MovingGround.position.y + 400, 0.8)
 
 
