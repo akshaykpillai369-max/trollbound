@@ -20,6 +20,7 @@ The goal is simple: Reach the door, but the levels do not allow you to do that e
 - Sound Effects
 - Music in levels and main menu
 - Settings to manage music
+- persistent game play (i.e your progress will survive the restart)
 
 
 ## Why I made this
