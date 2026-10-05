@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://cb4l6pcx47yd2"]
+
+[ext_resource type="Script" uid="uid://bsqpdg7lqjgwi" path="res://scripts/level_8.gd" id="1_8cf2o"]
+[ext_resource type="PackedScene" uid="uid://b8cuttrr7owoe" path="res://scenes/ground.tscn" id="1_pwt4q"]
+[ext_resource type="PackedScene" uid="uid://c32sv2neaa3e4" path="res://scenes/player.tscn" id="2_6xkyh"]
+[ext_resource type="PackedScene" uid="uid://j6ypk6xeg7cw" path="res://scenes/orange_smallground.tscn" id="3_6xkyh"]
+[ext_resource type="PackedScene" uid="uid://gpqdputycit2" path="res://scenes/death_screen.tscn" id="5_8w3ei"]
+[ext_resource type="PackedScene" uid="uid://d24ggyj8i4k2e" path="res://scenes/winner_screen.tscn" id="6_dsknv"]
+[ext_resource type="PackedScene" uid="uid://djmbhmvqa6m5" path="res://scenes/pause_menu.tscn" id="7_p3cgv"]
+[ext_resource type="FontFile" uid="uid://dvrkigp4rd1xo" path="res://assets/fonts/PressStart2P-Regular.ttf" id="8_xo8nd"]
+[ext_resource type="PackedScene" uid="uid://c0hegemm1vd4b" path="res://scenes/exit.tscn" id="9_dsknv"]
+[ext_resource type="AudioStream" uid="uid://b6n2wnkwb30lc" path="res://assets/sounds/overworld_theme.ogg" id="10_p3cgv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n7nmp"]
+size = Vector2(108, 73)
+
+[node name="level8" type="Node2D" unique_id=1409036271]
+script = ExtResource("1_8cf2o")
+
+[node name="Ground" parent="." unique_id=1210730134 instance=ExtResource("1_pwt4q")]
+position = Vector2(-680, -21)
+
+[node name="Ground2" parent="." unique_id=1653128445 instance=ExtResource("1_pwt4q")]
+position = Vector2(616, -21)
+
+[node name="TopGround" parent="." unique_id=1982052624 instance=ExtResource("1_pwt4q")]
+position = Vector2(-1003, -1012)
+scale = Vector2(2.7, 2.7)
+
+[node name="LeftSideGround" parent="." unique_id=1446591460 instance=ExtResource("1_pwt4q")]
+position = Vector2(731, -810.00006)
+rotation = 1.569051
+scale = Vector2(2, 2)
+
+[node name="RightSideGround" parent="." unique_id=1772915472 instance=ExtResource("1_pwt4q")]
+position = Vector2(1881.0001, -827.9999)
+rotation = 1.569051
+scale = Vector2(2, 2)
+
+[node name="Player" parent="." unique_id=694940250 instance=ExtResource("2_6xkyh")]
+position = Vector2(-228, -133)
+scale = Vector2(2, 2)
+
+[node name="MovingGround" type="Node2D" parent="." unique_id=196103000]
+
+[node name="Ground2" parent="MovingGround" unique_id=1803312602 instance=ExtResource("3_6xkyh")]
+position = Vector2(-231, -21)
+
+[node name="Ground3" parent="MovingGround" unique_id=899274555 instance=ExtResource("3_6xkyh")]
+position = Vector2(-188, -21)
+
+[node name="Ground4" parent="MovingGround" unique_id=1539244411 instance=ExtResource("3_6xkyh")]
+position = Vector2(-145, -21)
+
+[node name="MoveTrigger" type="Area2D" parent="." unique_id=167513769]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MoveTrigger" unique_id=934482507]
+position = Vector2(214, 288)
+shape = SubResource("RectangleShape2D_n7nmp")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1187725190]
+
+[node name="DeathScreen" parent="UI" unique_id=621254565 instance=ExtResource("5_8w3ei")]
+
+[node name="WinnerScreen" parent="UI" unique_id=162556210 instance=ExtResource("6_dsknv")]
+
+[node name="PauseMenu" parent="UI" unique_id=431796501 instance=ExtResource("7_p3cgv")]
+process_mode = 2
+visible = false
+position = Vector2(30, -7)
+
+[node name="PauseButton" type="Button" parent="UI" unique_id=849052485]
+offset_left = 990.0
+offset_top = 3.0
+offset_right = 1148.0
+offset_bottom = 43.0
+theme_override_fonts/font = ExtResource("8_xo8nd")
+theme_override_font_sizes/font_size = 20
+text = "PAUSE"
+
+[node name="Exit" parent="." unique_id=161210779 instance=ExtResource("9_dsknv")]
+position = Vector2(559, -11)
+
+[node name="LevelMusic" type="AudioStreamPlayer2D" parent="." unique_id=799137598]
+stream = ExtResource("10_p3cgv")
+
+[connection signal="body_entered" from="MoveTrigger" to="." method="_on_move_trigger_body_entered"]
+[connection signal="pressed" from="UI/WinnerScreen/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="UI/PauseButton" to="." method="_on_pause_button_pressed"]
+
+[editable path="UI/WinnerScreen"]

@@ -73,9 +73,7 @@ text = "LEVEL7"
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_mk87e")
 theme_override_font_sizes/font_size = 15
-text = "COMING 
-SOON
-"
+text = "LEVEL8"
 
 [node name="SecondRow" type="HBoxContainer" parent="." unique_id=1083306630]
 offset_left = 43.0
@@ -100,7 +98,7 @@ text = "COMING
 SOON
 "
 
-[node name="MenuMusic" type="AudioStreamPlayer2D" parent="." unique_id=874871962]
+[node name="MenuMusic" type="AudioStreamPlayer2D" parent="." unique_id=1311317492]
 stream = ExtResource("3_f7cvi")
 autoplay = true
 
