@@ -1,0 +1,142 @@
+[gd_scene format=3 uid="uid://c4awynjly37i1"]
+
+[ext_resource type="Script" uid="uid://b3b5ea63uo1ys" path="res://scripts/level_6.gd" id="1_4m8hb"]
+[ext_resource type="PackedScene" uid="uid://b8cuttrr7owoe" path="res://scenes/ground.tscn" id="1_nnkdi"]
+[ext_resource type="PackedScene" uid="uid://c32sv2neaa3e4" path="res://scenes/player.tscn" id="2_4m8hb"]
+[ext_resource type="PackedScene" uid="uid://b1lcd3casttwu" path="res://scenes/spike.tscn" id="3_6ilhl"]
+[ext_resource type="PackedScene" uid="uid://c0hegemm1vd4b" path="res://scenes/exit.tscn" id="4_adppw"]
+[ext_resource type="PackedScene" uid="uid://b6l7f3nf7lo3l" path="res://scenes/hovering-ground.tscn" id="5_rv0x7"]
+[ext_resource type="Texture2D" uid="uid://dlmladjcnx2ar" path="res://assets/spikes.png" id="7_6ilhl"]
+[ext_resource type="PackedScene" uid="uid://gpqdputycit2" path="res://scenes/death_screen.tscn" id="8_i4qay"]
+[ext_resource type="PackedScene" uid="uid://d24ggyj8i4k2e" path="res://scenes/winner_screen.tscn" id="9_wf6kw"]
+[ext_resource type="PackedScene" uid="uid://djmbhmvqa6m5" path="res://scenes/pause_menu.tscn" id="10_nasht"]
+[ext_resource type="FontFile" uid="uid://dvrkigp4rd1xo" path="res://assets/fonts/PressStart2P-Regular.ttf" id="11_ow7pe"]
+[ext_resource type="AudioStream" uid="uid://b6n2wnkwb30lc" path="res://assets/sounds/overworld_theme.ogg" id="12_wf6kw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n7nmp"]
+size = Vector2(425.92578, 25.37033)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_unhky"]
+size = Vector2(56, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8h2m0"]
+size = Vector2(27.25, 174.5)
+
+[node name="level6" type="Node2D" unique_id=240604250]
+script = ExtResource("1_4m8hb")
+
+[node name="Ground" parent="." unique_id=1210730134 instance=ExtResource("1_nnkdi")]
+position = Vector2(-1591.9999, -324)
+scale = Vector2(2.7, 2.7)
+
+[node name="DeathGround" type="Area2D" parent="Ground" unique_id=1316681368]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/DeathGround" unique_id=475427383]
+position = Vector2(593.7037, 356.6666)
+shape = SubResource("RectangleShape2D_n7nmp")
+
+[node name="TopGround" parent="." unique_id=2019517143 instance=ExtResource("1_nnkdi")]
+position = Vector2(-1003, -1012)
+scale = Vector2(2.7, 2.7)
+
+[node name="LeftSideGround" parent="." unique_id=76142451 instance=ExtResource("1_nnkdi")]
+position = Vector2(731, -810.00006)
+rotation = 1.569051
+scale = Vector2(2, 2)
+
+[node name="RightSideGround" parent="." unique_id=1637362248 instance=ExtResource("1_nnkdi")]
+position = Vector2(1881.0001, -827.9999)
+rotation = 1.569051
+scale = Vector2(2, 2)
+
+[node name="Player" parent="." unique_id=694940250 instance=ExtResource("2_4m8hb")]
+position = Vector2(-362, -285)
+scale = Vector2(3, 3)
+
+[node name="Spike3" parent="." unique_id=753410458 instance=ExtResource("3_6ilhl")]
+position = Vector2(119, 604)
+scale = Vector2(2, 2)
+
+[node name="Spike4" parent="." unique_id=1082154276 instance=ExtResource("3_6ilhl")]
+position = Vector2(365, 604)
+scale = Vector2(2, 2)
+
+[node name="Exit" parent="." unique_id=161210779 instance=ExtResource("4_adppw")]
+position = Vector2(275, 105)
+scale = Vector2(1.5, 1.5)
+
+[node name="small-ground5" parent="." unique_id=1794365199 instance=ExtResource("5_rv0x7")]
+position = Vector2(-258, 181)
+scale = Vector2(0.7, 0.7)
+
+[node name="SafeSpike" type="StaticBody2D" parent="." unique_id=1469602767]
+position = Vector2(-73, 208)
+
+[node name="Sprite2D" type="Sprite2D" parent="SafeSpike" unique_id=795912002]
+position = Vector2(334, 389)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_6ilhl")
+region_enabled = true
+region_rect = Rect2(267.80008, 156.60004, 114.00003, 52.799988)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SafeSpike" unique_id=1946297047]
+position = Vector2(334, 389.5)
+shape = SubResource("RectangleShape2D_unhky")
+
+[node name="SafeSpike2" type="StaticBody2D" parent="." unique_id=1742512587]
+position = Vector2(-73, 208)
+
+[node name="Sprite2D" type="Sprite2D" parent="SafeSpike2" unique_id=1003239955]
+position = Vector2(483, 387)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_6ilhl")
+region_enabled = true
+region_rect = Rect2(267.80008, 156.60004, 114.00003, 52.799988)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SafeSpike2" unique_id=1808705889]
+position = Vector2(482, 388)
+shape = SubResource("RectangleShape2D_unhky")
+
+[node name="Ground2" parent="." unique_id=1269851511 instance=ExtResource("1_nnkdi")]
+position = Vector2(-128, -83)
+scale = Vector2(2, 2)
+
+[node name="TrapSpike" parent="." unique_id=1951884892 instance=ExtResource("3_6ilhl")]
+visible = false
+position = Vector2(772, 606)
+
+[node name="TrapSpikeTrigger" type="Area2D" parent="TrapSpike" unique_id=413257455]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TrapSpike/TrapSpikeTrigger" unique_id=528346214]
+position = Vector2(181.625, -88.75)
+shape = SubResource("RectangleShape2D_8h2m0")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=919416509]
+
+[node name="DeathScreen" parent="UI" unique_id=621254565 instance=ExtResource("8_i4qay")]
+
+[node name="WinnerScreen" parent="UI" unique_id=162556210 instance=ExtResource("9_wf6kw")]
+
+[node name="PauseMenu" parent="UI" unique_id=431796501 instance=ExtResource("10_nasht")]
+process_mode = 2
+visible = false
+position = Vector2(30, -7)
+
+[node name="PauseButton" type="Button" parent="UI" unique_id=1446593140]
+offset_left = 990.0
+offset_top = 3.0
+offset_right = 1148.0
+offset_bottom = 43.0
+theme_override_fonts/font = ExtResource("11_ow7pe")
+theme_override_font_sizes/font_size = 20
+text = "PAUSE"
+
+[node name="LevelMusic" type="AudioStreamPlayer2D" parent="." unique_id=735286406]
+stream = ExtResource("12_wf6kw")
+
+[connection signal="body_entered" from="Ground/DeathGround" to="." method="_on_death_ground_body_entered"]
+[connection signal="body_entered" from="TrapSpike/TrapSpikeTrigger" to="." method="_on_trap_spike_trigger_body_entered"]
+[connection signal="pressed" from="UI/WinnerScreen/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="UI/PauseButton" to="." method="_on_pause_button_pressed"]
+
+[editable path="UI/WinnerScreen"]

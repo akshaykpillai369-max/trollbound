@@ -7,6 +7,11 @@ func _ready() -> void:
 	$LevelButtons/Level3Button.disabled = Settings.highest_unlocked_level < 3
 	$LevelButtons/Level4Button.disabled = Settings.highest_unlocked_level < 4
 	$LevelButtons/Level5Button.disabled = Settings.highest_unlocked_level < 5
+	$LevelButtons/Level6Button.disabled = Settings.highest_unlocked_level < 6
+	$LevelButtons/Level7Button.disabled = Settings.highest_unlocked_level < 7
+	$LevelButtons/Level8Button.disabled = Settings.highest_unlocked_level < 8
+	$SecondRow/Level9Button.disabled = Settings.highest_unlocked_level < 9
+	$SecondRow/Level10Button.disabled = Settings.highest_unlocked_level < 10
 	if Settings.main_menu_music_enabled:
 		$MenuMusic.playing
 
@@ -33,3 +38,22 @@ func _on_level_4_button_pressed() -> void:
 
 func _on_level_5_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://levels/level5.tscn")
+
+
+func _on_level_6_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://levels/level6.tscn")
+	
+func _on_level_7_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://levels/level7.tscn")
+
+
+func _on_level_8_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://levels/level8.tscn")
+
+
+func _on_level_9_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://levels/level9.tscn")
+
+
+func _on_level_10_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://levels/level10.tscn")

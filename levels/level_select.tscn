@@ -17,11 +17,11 @@ theme_override_font_sizes/font_size = 30
 text = "SELECT LEVEL"
 
 [node name="LevelButtons" type="HBoxContainer" parent="." unique_id=1541848498]
-offset_left = 53.0
-offset_top = 89.0
-offset_right = 1115.0
-offset_bottom = 222.0
-theme_override_constants/separation = 40
+offset_left = 45.0
+offset_top = 80.0
+offset_right = 1394.0
+offset_bottom = 244.0
+theme_override_constants/separation = 41
 
 [node name="Level1Button" type="Button" parent="LevelButtons" unique_id=1759735318]
 layout_mode = 2
@@ -56,6 +56,50 @@ theme_override_font_sizes/font_size = 15
 text = "LEVEL5
 "
 
+[node name="Level6Button" type="Button" parent="LevelButtons" unique_id=1206306468]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_mk87e")
+theme_override_font_sizes/font_size = 15
+text = "LEVEL6
+"
+
+[node name="Level7Button" type="Button" parent="LevelButtons" unique_id=271328736]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_mk87e")
+theme_override_font_sizes/font_size = 15
+text = "LEVEL7"
+
+[node name="Level8Button" type="Button" parent="LevelButtons" unique_id=1712638409]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_mk87e")
+theme_override_font_sizes/font_size = 15
+text = "COMING 
+SOON
+"
+
+[node name="SecondRow" type="HBoxContainer" parent="." unique_id=1083306630]
+offset_left = 43.0
+offset_top = 286.0
+offset_right = 520.0
+offset_bottom = 448.0
+theme_override_constants/separation = 44
+
+[node name="Level9Button" type="Button" parent="SecondRow" unique_id=1285488301]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_mk87e")
+theme_override_font_sizes/font_size = 15
+text = "COMING 
+SOON
+"
+
+[node name="Level10Button" type="Button" parent="SecondRow" unique_id=665458248]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_mk87e")
+theme_override_font_sizes/font_size = 15
+text = "COMING
+SOON
+"
+
 [node name="MenuMusic" type="AudioStreamPlayer2D" parent="." unique_id=874871962]
 stream = ExtResource("3_f7cvi")
 autoplay = true
@@ -65,3 +109,8 @@ autoplay = true
 [connection signal="pressed" from="LevelButtons/Level3Button" to="." method="_on_level_3_button_pressed"]
 [connection signal="pressed" from="LevelButtons/Level4Button" to="." method="_on_level_4_button_pressed"]
 [connection signal="pressed" from="LevelButtons/Level5Button" to="." method="_on_level_5_button_pressed"]
+[connection signal="pressed" from="LevelButtons/Level6Button" to="." method="_on_level_6_button_pressed"]
+[connection signal="pressed" from="LevelButtons/Level7Button" to="." method="_on_level_7_button_pressed"]
+[connection signal="pressed" from="LevelButtons/Level8Button" to="." method="_on_level_8_button_pressed"]
+[connection signal="pressed" from="SecondRow/Level9Button" to="." method="_on_level_9_button_pressed"]
+[connection signal="pressed" from="SecondRow/Level10Button" to="." method="_on_level_10_button_pressed"]
