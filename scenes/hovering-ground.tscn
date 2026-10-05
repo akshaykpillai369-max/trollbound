@@ -1,15 +1,19 @@
 [gd_scene format=3 uid="uid://b6l7f3nf7lo3l"]
 
+[ext_resource type="Texture2D" uid="uid://cjyhvyc4w3rg4" path="res://assets/hovering_ground_sheet.png" id="1_8fkp2"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fu7sn"]
-size = Vector2(176, 40)
+size = Vector2(130, 60)
 
 [node name="small-ground" type="StaticBody2D" unique_id=1277270547]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=835814701]
-position = Vector2(498, 329)
+position = Vector2(501, 350)
 shape = SubResource("RectangleShape2D_fu7sn")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1217801825]
-position = Vector2(504, 348)
+position = Vector2(501.59998, 349)
+scale = Vector2(0.7037737, 0.7)
+texture = ExtResource("1_8fkp2")
 region_enabled = true
-region_rect = Rect2(461.2, 124.600006, 219.60004, 106.2)
+region_rect = Rect2(461.2, 124.600006, 212.49982, 106.2)

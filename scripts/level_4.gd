@@ -25,6 +25,8 @@ func _on_hover_trigger_body_entered(body: Node2D) -> void:
 		)
 
 func show_win_screen():
+	Settings.highest_unlocked_level = max(Settings.highest_unlocked_level, 5)
+	Settings.save_progress()
 	$Player.set_physics_process(false)
 	$UI/WinnerScreen.show()
 	
@@ -41,6 +43,7 @@ func _on_exit_body_entered(body: Node2D) -> void:
 			$Exit/Door.play()
 			$Exit/DoorSound.play()
 			await $Exit/Door.animation_finished
+			get_tree().paused = true
 			show_win_screen()
 
 
@@ -49,6 +52,7 @@ func _on_control_reset_trigger_body_entered(body: Node2D) -> void:
 		body.reverse_controls = false
 
 func _on_next_button_pressed() -> void:
+	get_tree().paused = false
 	get_tree().change_scene_to_file("res://levels/level5.tscn")
 
 

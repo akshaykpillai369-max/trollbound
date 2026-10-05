@@ -15,11 +15,14 @@ func _on_retry_button_pressed() -> void:
 	get_tree().reload_current_scene()
 	
 func show_win_screen():
+	Settings.highest_unlocked_level = max(Settings.highest_unlocked_level, 2)
+	Settings.save_progress()
 	$Player.set_physics_process(false)
 	$UI/WinnerScreen.show()	
 
 
 func _on_next_button_pressed() -> void:
+	get_tree().paused = false
 	get_tree().change_scene_to_file("res://levels/level2.tscn")
 
 

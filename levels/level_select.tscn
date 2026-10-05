@@ -2,6 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://dvrkigp4rd1xo" path="res://assets/fonts/PressStart2P-Regular.ttf" id="1_mk87e"]
 [ext_resource type="Script" uid="uid://djy7jb30ne7e0" path="res://scripts/level_select.gd" id="1_ygvyp"]
+[ext_resource type="AudioStream" uid="uid://cf6c168f6tf5l" path="res://assets/sounds/unknown_planet.mp3" id="3_f7cvi"]
 
 [node name="LevelSelect" type="Node2D" unique_id=1038694459]
 script = ExtResource("1_ygvyp")
@@ -52,9 +53,12 @@ text = "LEVEL4
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_mk87e")
 theme_override_font_sizes/font_size = 15
-disabled = true
 text = "LEVEL5
 "
+
+[node name="MenuMusic" type="AudioStreamPlayer2D" parent="." unique_id=874871962]
+stream = ExtResource("3_f7cvi")
+autoplay = true
 
 [connection signal="pressed" from="LevelButtons/Level1Button" to="." method="_on_level_1_button_pressed"]
 [connection signal="pressed" from="LevelButtons/Level2Button" to="." method="_on_level_2_button_pressed"]

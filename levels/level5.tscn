@@ -1,0 +1,131 @@
+[gd_scene format=3 uid="uid://1qheevvqfvg"]
+
+[ext_resource type="Script" uid="uid://ddmotjrm78dbx" path="res://scripts/level_5.gd" id="1_s216a"]
+[ext_resource type="PackedScene" uid="uid://b8cuttrr7owoe" path="res://scenes/ground.tscn" id="2_hydfx"]
+[ext_resource type="PackedScene" uid="uid://c32sv2neaa3e4" path="res://scenes/player.tscn" id="3_s216a"]
+[ext_resource type="PackedScene" uid="uid://b1lcd3casttwu" path="res://scenes/spike.tscn" id="4_s216a"]
+[ext_resource type="PackedScene" uid="uid://c0hegemm1vd4b" path="res://scenes/exit.tscn" id="5_bufqw"]
+[ext_resource type="PackedScene" uid="uid://gpqdputycit2" path="res://scenes/death_screen.tscn" id="6_vp6pq"]
+[ext_resource type="PackedScene" uid="uid://d24ggyj8i4k2e" path="res://scenes/winner_screen.tscn" id="7_66nwl"]
+[ext_resource type="PackedScene" uid="uid://djmbhmvqa6m5" path="res://scenes/pause_menu.tscn" id="8_t5gjd"]
+[ext_resource type="FontFile" uid="uid://dvrkigp4rd1xo" path="res://assets/fonts/PressStart2P-Regular.ttf" id="9_1oekh"]
+[ext_resource type="AudioStream" uid="uid://b6n2wnkwb30lc" path="res://assets/sounds/overworld_theme.ogg" id="10_66nwl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_unhky"]
+size = Vector2(59.50377, 86.00503)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8h2m0"]
+size = Vector2(77.6116, 193.97)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n7nmp"]
+size = Vector2(161, 196.5)
+
+[node name="level5" type="Node2D" unique_id=475357153]
+script = ExtResource("1_s216a")
+
+[node name="Ground" parent="." unique_id=1210730134 instance=ExtResource("2_hydfx")]
+position = Vector2(-986, -324)
+scale = Vector2(2.7, 2.7)
+
+[node name="TopGround" parent="." unique_id=1518210518 instance=ExtResource("2_hydfx")]
+position = Vector2(-1003, -1012)
+scale = Vector2(2.7, 2.7)
+
+[node name="LeftSideGround" parent="." unique_id=42118554 instance=ExtResource("2_hydfx")]
+position = Vector2(731, -810.00006)
+rotation = 1.569051
+scale = Vector2(2, 2)
+
+[node name="RightSideGround" parent="." unique_id=1518009497 instance=ExtResource("2_hydfx")]
+position = Vector2(1881.0001, -827.9999)
+rotation = 1.569051
+scale = Vector2(2, 2)
+
+[node name="Player" parent="." unique_id=694940250 instance=ExtResource("3_s216a")]
+position = Vector2(-189, 143)
+scale = Vector2(2, 2)
+
+[node name="Spike" parent="." unique_id=1951884892 instance=ExtResource("4_s216a")]
+position = Vector2(160, 602)
+
+[node name="CeilingSpike" parent="." unique_id=1708917289 instance=ExtResource("4_s216a")]
+visible = false
+position = Vector2(867.99994, 28.999998)
+rotation = -3.1398473
+scale = Vector2(2, 2)
+
+[node name="SpikeShowTrigger" type="Area2D" parent="CeilingSpike" unique_id=2004675678]
+position = Vector2(156.9064, -53.773983)
+scale = Vector2(0.50000006, 0.50000006)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CeilingSpike/SpikeShowTrigger" unique_id=588031748]
+position = Vector2(167.34521, -386.27502)
+scale = Vector2(1.0000012, 1.0000012)
+shape = SubResource("RectangleShape2D_unhky")
+
+[node name="SpikeShowTrigger2" type="Area2D" parent="CeilingSpike" unique_id=1480839280]
+position = Vector2(156.9064, -53.773983)
+scale = Vector2(0.50000006, 0.50000006)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CeilingSpike/SpikeShowTrigger2" unique_id=292018626]
+position = Vector2(196.87378, 108.68836)
+scale = Vector2(1.0000012, 1.0000012)
+shape = SubResource("RectangleShape2D_unhky")
+
+[node name="ChasingSpike" parent="." unique_id=1085917624 instance=ExtResource("4_s216a")]
+visible = false
+position = Vector2(520, 24.999998)
+rotation = -3.1398473
+scale = Vector2(2, 2)
+monitoring = false
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1960175813]
+position = Vector2(210.99997, 517)
+rotation = -3.1398473
+scale = Vector2(1.0000005, 1.0000005)
+
+[node name="JumpSpeedIncreseCollision" type="CollisionShape2D" parent="Area2D" unique_id=935342321]
+position = Vector2(-30.999968, 0.0541046)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_8h2m0")
+
+[node name="Exit" parent="." unique_id=161210779 instance=ExtResource("5_bufqw")]
+position = Vector2(1182.0001, 346.99997)
+rotation = 3.1398473
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=198946355]
+
+[node name="DeathScreen" parent="UI" unique_id=621254565 instance=ExtResource("6_vp6pq")]
+
+[node name="WinnerScreen" parent="UI" unique_id=162556210 instance=ExtResource("7_66nwl")]
+
+[node name="PauseMenu" parent="UI" unique_id=431796501 instance=ExtResource("8_t5gjd")]
+process_mode = 2
+visible = false
+position = Vector2(30, -7)
+
+[node name="PauseButton" type="Button" parent="UI" unique_id=1343418771]
+offset_left = 990.0
+offset_top = 3.0
+offset_right = 1148.0
+offset_bottom = 43.0
+theme_override_fonts/font = ExtResource("9_1oekh")
+theme_override_font_sizes/font_size = 20
+text = "PAUSE"
+
+[node name="DoorMoveTrigger" type="Area2D" parent="." unique_id=1659642548]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorMoveTrigger" unique_id=1867199498]
+position = Vector2(620.5, 94.75)
+shape = SubResource("RectangleShape2D_n7nmp")
+
+[node name="LevelMusic" type="AudioStreamPlayer2D" parent="." unique_id=1578812075]
+stream = ExtResource("10_66nwl")
+
+[connection signal="body_entered" from="CeilingSpike/SpikeShowTrigger" to="." method="_on_spike_show_trigger_body_entered"]
+[connection signal="body_entered" from="CeilingSpike/SpikeShowTrigger2" to="." method="_on_spike_show_trigger_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="pressed" from="UI/PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="body_entered" from="DoorMoveTrigger" to="." method="_on_door_move_trigger_body_entered"]
+
+[editable path="UI/WinnerScreen"]

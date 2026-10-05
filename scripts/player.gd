@@ -4,18 +4,34 @@ extends CharacterBody2D
 const SPEED = 250.0
 var current_speed = SPEED
 const JUMP_VELOCITY = -400.0
+var current_jump_velocity = JUMP_VELOCITY
 @export var death_y = 382.0
 @export var reverse_controls := false
+var gravity_flipped := false
+var ceiling_locked := false
 
 
 func _physics_process(delta: float) -> void:
+	if gravity_flipped:
+		up_direction = Vector2.DOWN
+	else:
+		up_direction = Vector2.UP
 	# Add the gravity.
 	if not is_on_floor():
-		velocity += get_gravity() * delta
-
+		if gravity_flipped:
+			velocity.y = 0
+		else:
+			velocity += get_gravity() * delta
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor() and not ceiling_locked:
+		if gravity_flipped:
+			gravity_flipped = false
+			up_direction = Vector2.UP
+			$AnimatedSprite2D.flip_v = false
+			velocity.y = abs(current_jump_velocity)
+		else:
+			velocity.y = current_jump_velocity
+	
 		$JumpSound.play()
 
 	# Get the input direction and handle the movement/deceleration.
@@ -34,6 +50,12 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.play("idle")
 		$RunSound.stop()
 	move_and_slide()
+
+	if not gravity_flipped and is_on_ceiling():
+		gravity_flipped = true
+		velocity.y = 0
+		$AnimatedSprite2D.flip_v = true
+
 	if position.y > death_y:
 		die()
 

@@ -3,8 +3,12 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	$LevelButtons/Level2Button.disabled = Settings.highest_unlocked_level < 2
+	$LevelButtons/Level3Button.disabled = Settings.highest_unlocked_level < 3
+	$LevelButtons/Level4Button.disabled = Settings.highest_unlocked_level < 4
+	$LevelButtons/Level5Button.disabled = Settings.highest_unlocked_level < 5
+	if Settings.main_menu_music_enabled:
+		$MenuMusic.playing
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

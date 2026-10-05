@@ -16,10 +16,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 290.0
-offset_top = 160.0
-offset_right = 852.0
-offset_bottom = 454.0
+offset_left = 295.0
+offset_top = 159.0
+offset_right = 857.0
+offset_bottom = 453.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.06666667, 0.06666667, 0.06666667, 1)
@@ -27,21 +27,32 @@ color = Color(0.06666667, 0.06666667, 0.06666667, 1)
 [node name="DeathMessage" type="Label" parent="." unique_id=26335141]
 layout_mode = 0
 offset_left = 438.0
-offset_top = 243.0
+offset_top = 213.0
 offset_right = 718.0
-offset_bottom = 297.0
+offset_bottom = 267.0
 theme_override_fonts/font = ExtResource("1_uyutr")
 theme_override_font_sizes/font_size = 35
 text = "YOU DIED"
 
 [node name="RetryButton" type="Button" parent="." unique_id=482727039]
 layout_mode = 0
-offset_left = 527.0
-offset_top = 312.0
-offset_right = 641.0
-offset_bottom = 373.0
+offset_left = 511.0
+offset_top = 281.0
+offset_right = 644.0
+offset_bottom = 342.0
 theme_override_fonts/font = ExtResource("1_uyutr")
 theme_override_font_sizes/font_size = 25
 text = "RETRY"
 
+[node name="MainMenuButton" type="Button" parent="." unique_id=859446864]
+layout_mode = 0
+offset_left = 432.0
+offset_top = 353.0
+offset_right = 710.0
+offset_bottom = 397.0
+theme_override_fonts/font = ExtResource("1_uyutr")
+theme_override_font_sizes/font_size = 25
+text = "MAIN MENU"
+
 [connection signal="pressed" from="RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
