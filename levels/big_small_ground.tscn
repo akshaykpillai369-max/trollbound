@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://ceg7shw0fnd07"]
+
+[ext_resource type="PackedScene" uid="uid://bqcxnon3k07w3" path="res://scenes/small_ground.tscn" id="1_ys265"]
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=1547032052]
+
+[node name="Small-Ground" parent="." unique_id=580012150 instance=ExtResource("1_ys265")]
+position = Vector2(-441, 231)
+scale = Vector2(1.5, 1.5)
+
+[node name="Small-Ground2" parent="." unique_id=996388469 instance=ExtResource("1_ys265")]
+position = Vector2(-441, 210.00002)
+scale = Vector2(1.5, 1.5)

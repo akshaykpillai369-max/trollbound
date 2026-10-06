@@ -25,55 +25,79 @@ theme_override_constants/separation = 41
 
 [node name="Level1Button" type="Button" parent="LevelButtons" unique_id=1759735318]
 layout_mode = 2
+theme_override_constants/line_spacing = 14
 theme_override_fonts/font = ExtResource("1_mk87e")
 theme_override_font_sizes/font_size = 15
-text = "LEVEL1"
+text = "LEVEL
+1"
 
 [node name="Level2Button" type="Button" parent="LevelButtons" unique_id=709833828]
 layout_mode = 2
+theme_override_constants/line_spacing = 14
 theme_override_fonts/font = ExtResource("1_mk87e")
 theme_override_font_sizes/font_size = 15
-text = "LEVEL2"
+text = "LEVEL
+2"
 
 [node name="Level3Button" type="Button" parent="LevelButtons" unique_id=588220963]
 layout_mode = 2
+theme_override_constants/line_spacing = 14
 theme_override_fonts/font = ExtResource("1_mk87e")
 theme_override_font_sizes/font_size = 15
-text = "LEVEL3
+text = "LEVEL
+3
 "
 
 [node name="Level4Button" type="Button" parent="LevelButtons" unique_id=1557379566]
 layout_mode = 2
+theme_override_constants/line_spacing = 14
 theme_override_fonts/font = ExtResource("1_mk87e")
 theme_override_font_sizes/font_size = 15
-text = "LEVEL4
+text = "LEVEL
+4
 "
 
 [node name="Level5Button" type="Button" parent="LevelButtons" unique_id=148127108]
 layout_mode = 2
+theme_override_constants/line_spacing = 14
 theme_override_fonts/font = ExtResource("1_mk87e")
 theme_override_font_sizes/font_size = 15
-text = "LEVEL5
+text = "LEVEL
+5
 "
 
 [node name="Level6Button" type="Button" parent="LevelButtons" unique_id=1206306468]
 layout_mode = 2
+theme_override_constants/line_spacing = 14
 theme_override_fonts/font = ExtResource("1_mk87e")
 theme_override_font_sizes/font_size = 15
-text = "LEVEL6
+text = "LEVEL
+6
 "
 
 [node name="Level7Button" type="Button" parent="LevelButtons" unique_id=271328736]
 layout_mode = 2
+theme_override_constants/line_spacing = 14
 theme_override_fonts/font = ExtResource("1_mk87e")
 theme_override_font_sizes/font_size = 15
-text = "LEVEL7"
+text = "LEVEL
+7"
 
 [node name="Level8Button" type="Button" parent="LevelButtons" unique_id=1712638409]
 layout_mode = 2
+theme_override_constants/line_spacing = 14
 theme_override_fonts/font = ExtResource("1_mk87e")
 theme_override_font_sizes/font_size = 15
-text = "LEVEL8"
+text = "LEVEL
+8"
+
+[node name="Level9Button" type="Button" parent="LevelButtons" unique_id=1285488301]
+layout_mode = 2
+theme_override_constants/line_spacing = 14
+theme_override_fonts/font = ExtResource("1_mk87e")
+theme_override_font_sizes/font_size = 15
+text = "LEVEL
+9"
 
 [node name="SecondRow" type="HBoxContainer" parent="." unique_id=1083306630]
 offset_left = 43.0
@@ -82,17 +106,53 @@ offset_right = 520.0
 offset_bottom = 448.0
 theme_override_constants/separation = 44
 
-[node name="Level9Button" type="Button" parent="SecondRow" unique_id=1285488301]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_mk87e")
-theme_override_font_sizes/font_size = 15
-text = "LEVEL9"
-
 [node name="Level10Button" type="Button" parent="SecondRow" unique_id=665458248]
 layout_mode = 2
+theme_override_constants/line_spacing = 14
 theme_override_fonts/font = ExtResource("1_mk87e")
 theme_override_font_sizes/font_size = 15
-text = "LEVEL10"
+text = "LEVEL
+10"
+
+[node name="Level11Button" type="Button" parent="SecondRow" unique_id=1476957849]
+layout_mode = 2
+theme_override_constants/line_spacing = 14
+theme_override_fonts/font = ExtResource("1_mk87e")
+theme_override_font_sizes/font_size = 15
+text = "LEVEL
+11"
+
+[node name="Level12Button" type="Button" parent="SecondRow" unique_id=1254391956]
+layout_mode = 2
+theme_override_constants/line_spacing = 14
+theme_override_fonts/font = ExtResource("1_mk87e")
+theme_override_font_sizes/font_size = 15
+text = "LEVEL
+12"
+
+[node name="Level13Button" type="Button" parent="SecondRow" unique_id=415868902]
+layout_mode = 2
+theme_override_constants/line_spacing = 14
+theme_override_fonts/font = ExtResource("1_mk87e")
+theme_override_font_sizes/font_size = 15
+text = "LEVEL
+13"
+
+[node name="Level14Button" type="Button" parent="SecondRow" unique_id=672912375]
+layout_mode = 2
+theme_override_constants/line_spacing = 14
+theme_override_fonts/font = ExtResource("1_mk87e")
+theme_override_font_sizes/font_size = 15
+text = "LEVEL
+14"
+
+[node name="Level15Button" type="Button" parent="SecondRow" unique_id=310216324]
+layout_mode = 2
+theme_override_constants/line_spacing = 14
+theme_override_fonts/font = ExtResource("1_mk87e")
+theme_override_font_sizes/font_size = 15
+text = "LEVEL
+15"
 
 [node name="MenuMusic" type="AudioStreamPlayer2D" parent="." unique_id=1311317492]
 stream = ExtResource("3_f7cvi")
@@ -106,5 +166,10 @@ autoplay = true
 [connection signal="pressed" from="LevelButtons/Level6Button" to="." method="_on_level_6_button_pressed"]
 [connection signal="pressed" from="LevelButtons/Level7Button" to="." method="_on_level_7_button_pressed"]
 [connection signal="pressed" from="LevelButtons/Level8Button" to="." method="_on_level_8_button_pressed"]
-[connection signal="pressed" from="SecondRow/Level9Button" to="." method="_on_level_9_button_pressed"]
+[connection signal="pressed" from="LevelButtons/Level9Button" to="." method="_on_level_9_button_pressed"]
 [connection signal="pressed" from="SecondRow/Level10Button" to="." method="_on_level_10_button_pressed"]
+[connection signal="pressed" from="SecondRow/Level11Button" to="." method="_on_level_11_button_pressed"]
+[connection signal="pressed" from="SecondRow/Level12Button" to="." method="_on_level_12_button_pressed"]
+[connection signal="pressed" from="SecondRow/Level13Button" to="." method="_on_level_13_button_pressed"]
+[connection signal="pressed" from="SecondRow/Level14Button" to="." method="_on_level_14_button_pressed"]
+[connection signal="pressed" from="SecondRow/Level15Button" to="." method="_on_level_15_button_pressed"]

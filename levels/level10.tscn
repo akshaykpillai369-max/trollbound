@@ -1,0 +1,150 @@
+[gd_scene format=3 uid="uid://3srenblsrdou"]
+
+[ext_resource type="Script" uid="uid://bluxs4d3ddupt" path="res://scripts/level_10.gd" id="1_0gtow"]
+[ext_resource type="PackedScene" uid="uid://b8cuttrr7owoe" path="res://scenes/ground.tscn" id="1_qxn2e"]
+[ext_resource type="PackedScene" uid="uid://c32sv2neaa3e4" path="res://scenes/player.tscn" id="2_cshbl"]
+[ext_resource type="PackedScene" uid="uid://gpqdputycit2" path="res://scenes/death_screen.tscn" id="5_8oooe"]
+[ext_resource type="PackedScene" uid="uid://ceg7shw0fnd07" path="res://levels/big_small_ground.tscn" id="5_woihn"]
+[ext_resource type="PackedScene" uid="uid://d24ggyj8i4k2e" path="res://scenes/winner_screen.tscn" id="6_i18um"]
+[ext_resource type="PackedScene" uid="uid://djmbhmvqa6m5" path="res://scenes/pause_menu.tscn" id="7_8bhgk"]
+[ext_resource type="FontFile" uid="uid://dvrkigp4rd1xo" path="res://assets/fonts/PressStart2P-Regular.ttf" id="8_mv8ey"]
+[ext_resource type="PackedScene" uid="uid://b1lcd3casttwu" path="res://scenes/spike.tscn" id="9_i18um"]
+[ext_resource type="PackedScene" uid="uid://c0hegemm1vd4b" path="res://scenes/exit.tscn" id="10_8bhgk"]
+[ext_resource type="AudioStream" uid="uid://b6n2wnkwb30lc" path="res://assets/sounds/overworld_theme.ogg" id="11_mv8ey"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8h2m0"]
+size = Vector2(89.625, 149)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hms2d"]
+size = Vector2(80.5, 27.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8oooe"]
+size = Vector2(91.75, 52.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n7nmp"]
+size = Vector2(55, 157.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_unhky"]
+size = Vector2(43, 70)
+
+[node name="Level10" type="Node2D" unique_id=547789500]
+script = ExtResource("1_0gtow")
+
+[node name="TopGround" parent="." unique_id=1210730134 instance=ExtResource("1_qxn2e")]
+position = Vector2(-1003, -1012)
+scale = Vector2(2.7, 2.7)
+
+[node name="LeftSideGround" parent="." unique_id=1535725825 instance=ExtResource("1_qxn2e")]
+position = Vector2(731, -810.00006)
+rotation = 1.569051
+scale = Vector2(2, 2)
+
+[node name="RightSideGround" parent="." unique_id=1003563109 instance=ExtResource("1_qxn2e")]
+position = Vector2(1881.0001, -827.9999)
+rotation = 1.569051
+scale = Vector2(2, 2)
+
+[node name="Player" parent="." unique_id=694940250 instance=ExtResource("2_cshbl")]
+position = Vector2(-80, 251)
+scale = Vector2(1.5, 1.5)
+
+[node name="Ground" parent="." unique_id=2084047689 instance=ExtResource("1_qxn2e")]
+position = Vector2(-566, 262)
+
+[node name="Ground2" parent="." unique_id=1172866020 instance=ExtResource("1_qxn2e")]
+position = Vector2(646, -115)
+
+[node name="StaticBody2D" parent="." unique_id=1547032052 instance=ExtResource("5_woihn")]
+
+[node name="StaticBody2D6" parent="." unique_id=1638695856 instance=ExtResource("5_woihn")]
+position = Vector2(477, -218)
+
+[node name="GroundFallTrigger" type="Area2D" parent="StaticBody2D6" unique_id=1947424579]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6/GroundFallTrigger" unique_id=550832257]
+position = Vector2(289.1875, 502)
+shape = SubResource("RectangleShape2D_8h2m0")
+
+[node name="StaticBody2D7" parent="." unique_id=754725795 instance=ExtResource("5_woihn")]
+position = Vector2(666, -302)
+
+[node name="GroundGone2Trigger" type="Area2D" parent="StaticBody2D7" unique_id=366845312]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D7/GroundGone2Trigger" unique_id=316795898]
+position = Vector2(289, 559.875)
+shape = SubResource("RectangleShape2D_hms2d")
+
+[node name="StaticBody2D8" parent="." unique_id=719993892 instance=ExtResource("5_woihn")]
+position = Vector2(571, -257)
+
+[node name="StaticBody2D5" parent="." unique_id=811631498 instance=ExtResource("5_woihn")]
+position = Vector2(383, -175)
+
+[node name="StaticBody2D4" parent="." unique_id=1680177827 instance=ExtResource("5_woihn")]
+position = Vector2(286, -132)
+
+[node name="PlayerHitTrigger" type="Area2D" parent="StaticBody2D4" unique_id=292127950]
+position = Vector2(-94, 44)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4/PlayerHitTrigger" unique_id=46445415]
+position = Vector2(291.125, 543.25)
+shape = SubResource("RectangleShape2D_8oooe")
+
+[node name="StaticBody2D3" parent="." unique_id=972532967 instance=ExtResource("5_woihn")]
+position = Vector2(192, -88)
+
+[node name="StaticBody2D2" parent="." unique_id=1926387986 instance=ExtResource("5_woihn")]
+position = Vector2(96, -44)
+
+[node name="GroundMoveTrigger" type="Area2D" parent="StaticBody2D2" unique_id=1762108325]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2/GroundMoveTrigger" unique_id=227758166]
+position = Vector2(277.5, 508.75)
+shape = SubResource("RectangleShape2D_n7nmp")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=988864427]
+
+[node name="DeathScreen" parent="UI" unique_id=621254565 instance=ExtResource("5_8oooe")]
+
+[node name="WinnerScreen" parent="UI" unique_id=162556210 instance=ExtResource("6_i18um")]
+
+[node name="PauseMenu" parent="UI" unique_id=431796501 instance=ExtResource("7_8bhgk")]
+process_mode = 2
+visible = false
+position = Vector2(30, -7)
+
+[node name="PauseButton" type="Button" parent="UI" unique_id=1138022829]
+offset_left = 990.0
+offset_top = 3.0
+offset_right = 1148.0
+offset_bottom = 43.0
+theme_override_fonts/font = ExtResource("8_mv8ey")
+theme_override_font_sizes/font_size = 20
+text = "PAUSE"
+
+[node name="Spike" parent="." unique_id=1951884892 instance=ExtResource("9_i18um")]
+visible = false
+position = Vector2(456, 394)
+
+[node name="SpikeTrigger" type="Area2D" parent="." unique_id=1111938775]
+position = Vector2(456, 394)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpikeTrigger" unique_id=884061437]
+position = Vector2(212.5, -34)
+shape = SubResource("RectangleShape2D_unhky")
+
+[node name="Exit" parent="." unique_id=161210779 instance=ExtResource("10_8bhgk")]
+position = Vector2(558, -108)
+
+[node name="LevelMusic" type="AudioStreamPlayer2D" parent="." unique_id=498581223]
+stream = ExtResource("11_mv8ey")
+
+[connection signal="body_entered" from="StaticBody2D6/GroundFallTrigger" to="." method="_on_ground_fall_trigger_body_entered"]
+[connection signal="body_entered" from="StaticBody2D7/GroundGone2Trigger" to="." method="_on_ground_gone_2_trigger_body_entered"]
+[connection signal="body_entered" from="StaticBody2D4/PlayerHitTrigger" to="." method="_on_player_hit_trigger_body_entered"]
+[connection signal="body_entered" from="StaticBody2D2/GroundMoveTrigger" to="." method="_on_ground_move_trigger_body_entered"]
+[connection signal="pressed" from="UI/WinnerScreen/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="UI/PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="body_entered" from="SpikeTrigger" to="." method="_on_spike_trigger_body_entered"]
+
+[editable path="UI/WinnerScreen"]

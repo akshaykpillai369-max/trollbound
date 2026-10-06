@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cbl6bfltpvr16"]
+
+[ext_resource type="PackedScene" uid="uid://b8cuttrr7owoe" path="res://scenes/ground.tscn" id="1_1xa0l"]
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=523721947]
+
+[node name="Ground2" parent="." unique_id=1210730134 instance=ExtResource("1_1xa0l")]
+position = Vector2(636, -115)
+
+[node name="Ground" parent="." unique_id=1409540529 instance=ExtResource("1_1xa0l")]
+position = Vector2(-566, 262)
