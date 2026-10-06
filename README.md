@@ -68,4 +68,8 @@ While making Trollbound, I learned about:
 | :---: | :---: |
 | ![Level 7](screenshots/level_7.png) | ![Level 8](screenshots/level_8.png) |
 
+| Level 9 | Level 10 |
+| :---: | :---: |
+| ![Level 9](screenshots/level_9.png) | ![Level 10](screenshots/level_10.png) |
+
 ---
