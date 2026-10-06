@@ -50,7 +50,7 @@ func _on_move_trigger_body_entered(body: Node2D) -> void:
 		$MovingGround/Ground3.queue_free()
 		
 func show_win_screen():
-	Settings.highest_unlocked_level = max(Settings.highest_unlocked_level, 7)
+	Settings.highest_unlocked_level = max(Settings.highest_unlocked_level, 9)
 	Settings.save_progress()
 	$Player.set_physics_process(false)
 	$UI/WinnerScreen.show()

@@ -86,17 +86,13 @@ theme_override_constants/separation = 44
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_mk87e")
 theme_override_font_sizes/font_size = 15
-text = "COMING 
-SOON
-"
+text = "LEVEL9"
 
 [node name="Level10Button" type="Button" parent="SecondRow" unique_id=665458248]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_mk87e")
 theme_override_font_sizes/font_size = 15
-text = "COMING
-SOON
-"
+text = "LEVEL10"
 
 [node name="MenuMusic" type="AudioStreamPlayer2D" parent="." unique_id=1311317492]
 stream = ExtResource("3_f7cvi")

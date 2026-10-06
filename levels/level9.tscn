@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://dp1ou16qfqa1g"]
+
+[ext_resource type="Script" uid="uid://b62qep6h4n6ir" path="res://scripts/level_9.gd" id="1_6mid5"]
+[ext_resource type="PackedScene" uid="uid://b8cuttrr7owoe" path="res://scenes/ground.tscn" id="1_lwt4d"]
+[ext_resource type="PackedScene" uid="uid://c32sv2neaa3e4" path="res://scenes/player.tscn" id="2_h7pi5"]
+[ext_resource type="PackedScene" uid="uid://j6ypk6xeg7cw" path="res://scenes/orange_smallground.tscn" id="3_6mid5"]
+[ext_resource type="PackedScene" uid="uid://gpqdputycit2" path="res://scenes/death_screen.tscn" id="5_jvmxc"]
+[ext_resource type="PackedScene" uid="uid://d24ggyj8i4k2e" path="res://scenes/winner_screen.tscn" id="6_csfeo"]
+[ext_resource type="PackedScene" uid="uid://djmbhmvqa6m5" path="res://scenes/pause_menu.tscn" id="7_24dmg"]
+[ext_resource type="FontFile" uid="uid://dvrkigp4rd1xo" path="res://assets/fonts/PressStart2P-Regular.ttf" id="8_y3hxw"]
+[ext_resource type="PackedScene" uid="uid://c0hegemm1vd4b" path="res://scenes/exit.tscn" id="9_csfeo"]
+[ext_resource type="AudioStream" uid="uid://b6n2wnkwb30lc" path="res://assets/sounds/overworld_theme.ogg" id="10_24dmg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_unhky"]
+size = Vector2(80, 126.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n7nmp"]
+size = Vector2(64, 92)
+
+[node name="Level9" type="Node2D" unique_id=1479234177]
+script = ExtResource("1_6mid5")
+
+[node name="Ground" parent="." unique_id=1210730134 instance=ExtResource("1_lwt4d")]
+position = Vector2(-588, -17)
+
+[node name="Ground2" parent="." unique_id=1194588449 instance=ExtResource("1_lwt4d")]
+position = Vector2(616, -17)
+
+[node name="TopGround" parent="." unique_id=1482347410 instance=ExtResource("1_lwt4d")]
+position = Vector2(-1003, -1012)
+scale = Vector2(2.7, 2.7)
+
+[node name="LeftSideGround" parent="." unique_id=328277645 instance=ExtResource("1_lwt4d")]
+position = Vector2(731, -810.00006)
+rotation = 1.569051
+scale = Vector2(2, 2)
+
+[node name="RightSideGround" parent="." unique_id=1050407483 instance=ExtResource("1_lwt4d")]
+position = Vector2(1881.0001, -827.9999)
+rotation = 1.569051
+scale = Vector2(2, 2)
+
+[node name="Player" parent="." unique_id=694940250 instance=ExtResource("2_h7pi5")]
+position = Vector2(-235, -133)
+scale = Vector2(2, 2)
+
+[node name="TrollGround" type="Node2D" parent="." unique_id=1376554240]
+
+[node name="Ground2" parent="TrollGround" unique_id=28849064 instance=ExtResource("3_6mid5")]
+position = Vector2(-59, -17)
+
+[node name="Ground5" parent="TrollGround" unique_id=1263789287 instance=ExtResource("3_6mid5")]
+position = Vector2(477, -17)
+
+[node name="Ground3" parent="TrollGround" unique_id=408021310 instance=ExtResource("3_6mid5")]
+position = Vector2(136, -17)
+
+[node name="Ground4" parent="TrollGround" unique_id=1495101149 instance=ExtResource("3_6mid5")]
+position = Vector2(317, -17)
+
+[node name="GoneTrigger" type="Area2D" parent="TrollGround/Ground4" unique_id=802199824]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="TrollGround/Ground4/GoneTrigger" unique_id=1117942226]
+position = Vector2(378, 277)
+shape = SubResource("RectangleShape2D_unhky")
+
+[node name="hidegroundtrigger" type="Area2D" parent="TrollGround" unique_id=668005129]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TrollGround/hidegroundtrigger" unique_id=924598381]
+position = Vector2(227, 278)
+shape = SubResource("RectangleShape2D_n7nmp")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=218718240]
+
+[node name="DeathScreen" parent="UI" unique_id=621254565 instance=ExtResource("5_jvmxc")]
+
+[node name="WinnerScreen" parent="UI" unique_id=162556210 instance=ExtResource("6_csfeo")]
+
+[node name="PauseMenu" parent="UI" unique_id=431796501 instance=ExtResource("7_24dmg")]
+process_mode = 2
+visible = false
+position = Vector2(30, -7)
+
+[node name="PauseButton" type="Button" parent="UI" unique_id=1451963530]
+offset_left = 990.0
+offset_top = 3.0
+offset_right = 1148.0
+offset_bottom = 43.0
+theme_override_fonts/font = ExtResource("8_y3hxw")
+theme_override_font_sizes/font_size = 20
+text = "PAUSE"
+
+[node name="Exit" parent="." unique_id=161210779 instance=ExtResource("9_csfeo")]
+position = Vector2(558, -9)
+
+[node name="LevelMusic" type="AudioStreamPlayer2D" parent="." unique_id=1979539530]
+stream = ExtResource("10_24dmg")
+
+[connection signal="body_entered" from="TrollGround/Ground4/GoneTrigger" to="." method="_on_gone_trigger_body_entered"]
+[connection signal="body_entered" from="TrollGround/hidegroundtrigger" to="." method="_on_hidegroundtrigger_body_entered"]
+[connection signal="pressed" from="UI/WinnerScreen/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="UI/PauseButton" to="." method="_on_pause_button_pressed"]
+
+[editable path="TrollGround/Ground2"]
+[editable path="UI/WinnerScreen"]
