@@ -125,8 +125,5 @@ stream = ExtResource("10_66nwl")
 [connection signal="body_entered" from="CeilingSpike/SpikeShowTrigger" to="." method="_on_spike_show_trigger_body_entered"]
 [connection signal="body_entered" from="CeilingSpike/SpikeShowTrigger2" to="." method="_on_spike_show_trigger_body_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="pressed" from="UI/WinnerScreen/NextButton" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="UI/PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="body_entered" from="DoorMoveTrigger" to="." method="_on_door_move_trigger_body_entered"]
-
-[editable path="UI/WinnerScreen"]

@@ -4,7 +4,6 @@
 [ext_resource type="FontFile" uid="uid://dvrkigp4rd1xo" path="res://assets/fonts/PressStart2P-Regular.ttf" id="1_mm6lb"]
 
 [node name="WinnerScreen" type="Control" unique_id=162556210]
-process_mode = 2
 visible = false
 layout_mode = 3
 anchors_preset = 0
@@ -23,6 +22,7 @@ offset_right = 852.0
 offset_bottom = 454.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0.06666667, 0.06666667, 0.06666667, 1)
 
 [node name="WinMessage" type="Label" parent="." unique_id=562922444]
@@ -55,4 +55,5 @@ theme_override_fonts/font = ExtResource("1_mm6lb")
 theme_override_font_sizes/font_size = 25
 text = "MAIN MENU"
 
+[connection signal="pressed" from="NextButton" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]

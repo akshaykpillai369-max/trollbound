@@ -98,8 +98,6 @@ stream = ExtResource("10_24dmg")
 
 [connection signal="body_entered" from="TrollGround/Ground4/GoneTrigger" to="." method="_on_gone_trigger_body_entered"]
 [connection signal="body_entered" from="TrollGround/hidegroundtrigger" to="." method="_on_hidegroundtrigger_body_entered"]
-[connection signal="pressed" from="UI/WinnerScreen/NextButton" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="UI/PauseButton" to="." method="_on_pause_button_pressed"]
 
 [editable path="TrollGround/Ground2"]
-[editable path="UI/WinnerScreen"]

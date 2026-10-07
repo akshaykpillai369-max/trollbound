@@ -143,8 +143,5 @@ stream = ExtResource("11_mv8ey")
 [connection signal="body_entered" from="StaticBody2D7/GroundGone2Trigger" to="." method="_on_ground_gone_2_trigger_body_entered"]
 [connection signal="body_entered" from="StaticBody2D4/PlayerHitTrigger" to="." method="_on_player_hit_trigger_body_entered"]
 [connection signal="body_entered" from="StaticBody2D2/GroundMoveTrigger" to="." method="_on_ground_move_trigger_body_entered"]
-[connection signal="pressed" from="UI/WinnerScreen/NextButton" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="UI/PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="body_entered" from="SpikeTrigger" to="." method="_on_spike_trigger_body_entered"]
-
-[editable path="UI/WinnerScreen"]

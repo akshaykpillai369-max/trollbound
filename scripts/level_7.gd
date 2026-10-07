@@ -21,11 +21,6 @@ func _on_pause_button_pressed() -> void:
 	$UI/PauseMenu.show()
 	get_tree().paused = true
 	
-func _on_next_button_pressed() -> void:
-	get_tree().paused = false
-	get_tree().change_scene_to_file("res://levels/level8.tscn")
-
-
 func _on_chase_trigger_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		var tween = create_tween()

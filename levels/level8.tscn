@@ -85,7 +85,4 @@ position = Vector2(559, -11)
 stream = ExtResource("10_p3cgv")
 
 [connection signal="body_entered" from="MoveTrigger" to="." method="_on_move_trigger_body_entered"]
-[connection signal="pressed" from="UI/WinnerScreen/NextButton" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="UI/PauseButton" to="." method="_on_pause_button_pressed"]
-
-[editable path="UI/WinnerScreen"]

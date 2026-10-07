@@ -43,18 +43,12 @@ func _on_exit_body_entered(body: Node2D) -> void:
 			$Exit/Door.play()
 			$Exit/DoorSound.play()
 			await $Exit/Door.animation_finished
-			get_tree().paused = true
 			show_win_screen()
 
 
 func _on_control_reset_trigger_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		body.reverse_controls = false
-
-func _on_next_button_pressed() -> void:
-	get_tree().paused = false
-	get_tree().change_scene_to_file("res://levels/level5.tscn")
-
 
 func _on_pause_button_pressed() -> void:
 	$UI/PauseMenu.show()

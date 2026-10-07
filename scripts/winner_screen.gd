@@ -9,7 +9,15 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	
+func _on_next_button_pressed() -> void:
+	var current_level = get_tree().current_scene.name
+	var level_number = int(current_level.replace("Level", ""))
+	var next_level = level_number + 1
+
+	get_tree().change_scene_to_file(
+		"res://levels/level%d.tscn" % next_level
+	)
 
 func _on_main_menu_button_pressed() -> void:
-	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

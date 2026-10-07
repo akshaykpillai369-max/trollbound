@@ -131,9 +131,7 @@ rotation = 1.584759
 [connection signal="body_entered" from="Small-Ground/ShrinkTrigger" to="Small-Ground" method="_on_shrink_trigger_body_entered"]
 [connection signal="body_entered" from="SpeedTrigger" to="." method="_on_speed_trigger_body_entered"]
 [connection signal="body_entered" from="HiddenGroundTrigger" to="." method="_on_hidden_ground_trigger_body_entered"]
-[connection signal="pressed" from="UI/WinnerScreen/NextButton" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="UI/PauseButton" to="." method="_on_pause_button_pressed"]
 
 [editable path="Small-Ground"]
 [editable path="HiddenGround"]
-[editable path="UI/WinnerScreen"]

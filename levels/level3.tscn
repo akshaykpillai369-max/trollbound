@@ -105,8 +105,6 @@ rotation = 1.584759
 [connection signal="body_entered" from="PlatformDropTrigger" to="." method="_on_platform_drop_trigger_body_entered"]
 [connection signal="body_entered" from="ShrinkingGround/ShrinkTrigger" to="." method="_on_shrink_trigger_body_entered"]
 [connection signal="body_entered" from="SpikeTrigger" to="." method="_on_spike_trigger_body_entered"]
-[connection signal="pressed" from="UI/WinnerScreen/NextButton" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="UI/PauseButton" to="." method="_on_pause_button_pressed"]
 
 [editable path="ShrinkingGround"]
-[editable path="UI/WinnerScreen"]

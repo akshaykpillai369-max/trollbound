@@ -1,3 +1,293 @@
 [gd_scene format=3 uid="uid://c7j6ci37kyupt"]
 
+[ext_resource type="PackedScene" uid="uid://b8cuttrr7owoe" path="res://scenes/ground.tscn" id="1_bm2c4"]
+[ext_resource type="Script" uid="uid://btncgco2d5lop" path="res://scripts/level_12.gd" id="1_ie7k3"]
+[ext_resource type="AudioStream" uid="uid://b6n2wnkwb30lc" path="res://assets/sounds/overworld_theme.ogg" id="2_qyeqj"]
+[ext_resource type="PackedScene" uid="uid://c32sv2neaa3e4" path="res://scenes/player.tscn" id="3_qyeqj"]
+[ext_resource type="Script" uid="uid://btokyetaf5hu7" path="res://scripts/door_player.gd" id="5_2jkgd"]
+[ext_resource type="Texture2D" uid="uid://bwd13giaqnw1n" path="res://assets/door_frame.png" id="6_bneb3"]
+[ext_resource type="Texture2D" uid="uid://dnt7h5jpcxa3b" path="res://assets/door.png" id="7_4vsbj"]
+[ext_resource type="PackedScene" uid="uid://b1lcd3casttwu" path="res://scenes/spike.tscn" id="8_bneb3"]
+[ext_resource type="AudioStream" uid="uid://c041etw3cvxoe" path="res://assets/sounds/jump.wav" id="8_lger7"]
+[ext_resource type="PackedScene" uid="uid://gpqdputycit2" path="res://scenes/death_screen.tscn" id="9_pqoev"]
+[ext_resource type="PackedScene" uid="uid://d24ggyj8i4k2e" path="res://scenes/winner_screen.tscn" id="10_lger7"]
+[ext_resource type="PackedScene" uid="uid://djmbhmvqa6m5" path="res://scenes/pause_menu.tscn" id="11_p0mio"]
+[ext_resource type="FontFile" uid="uid://dvrkigp4rd1xo" path="res://assets/fonts/PressStart2P-Regular.ttf" id="12_q3nwp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hms2d"]
+size = Vector2(34, 64.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e4vtt"]
+size = Vector2(30, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7mer"]
+atlas = ExtResource("7_4vsbj")
+region = Rect2(0, 0, 108, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ka15t"]
+atlas = ExtResource("7_4vsbj")
+region = Rect2(108, 0, 108, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2427a"]
+atlas = ExtResource("7_4vsbj")
+region = Rect2(216, 0, 108, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywa8d"]
+atlas = ExtResource("7_4vsbj")
+region = Rect2(324, 0, 108, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtnw0"]
+atlas = ExtResource("7_4vsbj")
+region = Rect2(432, 0, 108, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1uste"]
+atlas = ExtResource("7_4vsbj")
+region = Rect2(540, 0, 108, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxtoi"]
+atlas = ExtResource("7_4vsbj")
+region = Rect2(648, 0, 108, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddvly"]
+atlas = ExtResource("7_4vsbj")
+region = Rect2(756, 0, 108, 288)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5o0av"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c7mer")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ka15t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2427a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ywa8d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtnw0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1uste")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxtoi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ddvly")
+}],
+"loop": 0,
+"name": &"close_to_open",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_unhky"]
+size = Vector2(75, 135.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n7nmp"]
+size = Vector2(85.25, 147.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8h2m0"]
+size = Vector2(36.75, 86)
+
 [node name="Level12" type="Node2D" unique_id=1954703835]
+script = ExtResource("1_ie7k3")
+
+[node name="TopGround" parent="." unique_id=1210730134 instance=ExtResource("1_bm2c4")]
+position = Vector2(-1003, -1012)
+scale = Vector2(2.7, 2.7)
+
+[node name="LeftSideGround" parent="." unique_id=1668018758 instance=ExtResource("1_bm2c4")]
+position = Vector2(731, -810.00006)
+rotation = 1.569051
+scale = Vector2(2, 2)
+
+[node name="RightSideGround" parent="." unique_id=812028359 instance=ExtResource("1_bm2c4")]
+position = Vector2(1881.0001, -827.9999)
+rotation = 1.569051
+scale = Vector2(2, 2)
+
+[node name="LevelMusic" type="AudioStreamPlayer2D" parent="." unique_id=1342108097]
+stream = ExtResource("2_qyeqj")
+
+[node name="Ground" parent="." unique_id=1448877411 instance=ExtResource("1_bm2c4")]
+position = Vector2(-683, -433)
+scale = Vector2(2, 2)
+
+[node name="Ground2" parent="." unique_id=1664667545 instance=ExtResource("1_bm2c4")]
+position = Vector2(-577, -433)
+scale = Vector2(2, 2)
+
+[node name="Ground3" parent="." unique_id=590710639 instance=ExtResource("1_bm2c4")]
+position = Vector2(318, -433)
+scale = Vector2(2, 2)
+
+[node name="Ground4" parent="." unique_id=1636372964 instance=ExtResource("1_bm2c4")]
+position = Vector2(130, -123)
+scale = Vector2(2, 2)
+
+[node name="Ground5" parent="." unique_id=1085590552 instance=ExtResource("1_bm2c4")]
+position = Vector2(-354, -123)
+scale = Vector2(2, 2)
+
+[node name="Ground6" parent="." unique_id=13913442 instance=ExtResource("1_bm2c4")]
+position = Vector2(-1361, -123)
+scale = Vector2(2, 2)
+
+[node name="Ground7" parent="." unique_id=2087465190 instance=ExtResource("1_bm2c4")]
+position = Vector2(-803, -123)
+scale = Vector2(2, 2)
+
+[node name="Player" parent="." unique_id=694940250 instance=ExtResource("3_qyeqj")]
+position = Vector2(-42, 335)
+
+[node name="WinArea" type="Area2D" parent="Player" unique_id=1249314258]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/WinArea" unique_id=142939834]
+position = Vector2(150, 201.25)
+shape = SubResource("RectangleShape2D_hms2d")
+
+[node name="DoorPlayer" type="CharacterBody2D" parent="." unique_id=889257223]
+position = Vector2(-432, -93)
+script = ExtResource("5_2jkgd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorPlayer" unique_id=1339686581]
+position = Vector2(525, 288)
+shape = SubResource("RectangleShape2D_e4vtt")
+
+[node name="DoorFrame" type="Sprite2D" parent="DoorPlayer" unique_id=797137174]
+position = Vector2(528.9629, 290.84372)
+scale = Vector2(0.08299384, 0.10551237)
+texture = ExtResource("6_bneb3")
+
+[node name="Door" type="AnimatedSprite2D" parent="DoorPlayer" unique_id=1532103471]
+position = Vector2(525, 288)
+scale = Vector2(0.55896723, 0.44965273)
+sprite_frames = SubResource("SpriteFrames_5o0av")
+animation = &"close_to_open"
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="DoorPlayer" unique_id=1380777163]
+stream = ExtResource("8_lger7")
+
+[node name="Spike" parent="." unique_id=1951884892 instance=ExtResource("8_bneb3")]
+visible = false
+position = Vector2(254, 255)
+
+[node name="SpikeTrigger" type="Area2D" parent="Spike" unique_id=955270628]
+position = Vector2(-254, -255)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike/SpikeTrigger" unique_id=1192037640]
+position = Vector2(397.5, 211)
+shape = SubResource("RectangleShape2D_unhky")
+
+[node name="Spike2" parent="." unique_id=1536472623 instance=ExtResource("8_bneb3")]
+visible = false
+position = Vector2(482, 255)
+
+[node name="SpikeTrigger1" type="Area2D" parent="Spike2" unique_id=1374159031]
+position = Vector2(-254, -255)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike2/SpikeTrigger1" unique_id=1977955809]
+position = Vector2(397.5, 211)
+shape = SubResource("RectangleShape2D_unhky")
+
+[node name="Spike3" parent="." unique_id=1548162894 instance=ExtResource("8_bneb3")]
+visible = false
+position = Vector2(876, 564)
+
+[node name="SpikeTrigger2" type="Area2D" parent="Spike3" unique_id=140356438]
+position = Vector2(-254, -255)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike3/SpikeTrigger2" unique_id=825398528]
+position = Vector2(454, 167.75)
+shape = SubResource("RectangleShape2D_unhky")
+
+[node name="GroundOpenTrigger" type="Area2D" parent="." unique_id=1410896202]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundOpenTrigger" unique_id=1619767983]
+position = Vector2(1073.375, 192.75)
+shape = SubResource("RectangleShape2D_n7nmp")
+
+[node name="GroundFreeTrigger" type="Area2D" parent="." unique_id=1365144049]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundFreeTrigger" unique_id=1798975257]
+position = Vector2(383.625, 520)
+shape = SubResource("RectangleShape2D_8h2m0")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=883211975]
+
+[node name="DeathScreen" parent="UI" unique_id=621254565 instance=ExtResource("9_pqoev")]
+
+[node name="GameEnd" parent="UI" unique_id=162556210 instance=ExtResource("10_lger7")]
+
+[node name="Background" parent="UI/GameEnd" index="0" unique_id=518485884]
+offset_left = 152.0
+offset_top = 36.0
+offset_right = 1020.0
+
+[node name="Title" type="Label" parent="UI/GameEnd" unique_id=1140481879]
+layout_mode = 0
+offset_left = 452.0
+offset_top = 56.0
+offset_right = 752.0
+offset_bottom = 86.0
+theme_override_fonts/font = ExtResource("12_q3nwp")
+theme_override_font_sizes/font_size = 30
+
+[node name="WinMessage" parent="UI/GameEnd" index="2" unique_id=562922444]
+offset_left = 207.0
+offset_top = 148.0
+offset_right = 1082.0
+offset_bottom = 275.0
+theme_override_constants/line_spacing = 11
+text = ""
+
+[node name="NextButton" parent="UI/GameEnd" index="3" unique_id=287560364]
+visible = false
+offset_left = 707.0
+offset_top = 364.0
+offset_right = 965.0
+offset_bottom = 425.0
+
+[node name="MainMenuButton" parent="UI/GameEnd" index="4" unique_id=1574550545]
+visible = false
+offset_left = 440.0
+offset_top = 381.0
+offset_right = 718.0
+offset_bottom = 425.0
+
+[node name="Thanks" type="Label" parent="UI/GameEnd" unique_id=1890885338]
+layout_mode = 0
+offset_left = 402.0
+offset_top = 349.0
+offset_right = 822.0
+offset_bottom = 424.0
+theme_override_fonts/font = ExtResource("12_q3nwp")
+theme_override_font_sizes/font_size = 20
+
+[node name="PauseMenu" parent="UI" unique_id=431796501 instance=ExtResource("11_p0mio")]
+process_mode = 2
+visible = false
+position = Vector2(30, -7)
+
+[node name="PauseButton" type="Button" parent="UI" unique_id=1667340138]
+offset_left = 990.0
+offset_top = 3.0
+offset_right = 1148.0
+offset_bottom = 43.0
+theme_override_fonts/font = ExtResource("12_q3nwp")
+theme_override_font_sizes/font_size = 20
+text = "PAUSE"
+
+[connection signal="body_entered" from="Player/WinArea" to="." method="_on_win_area_body_entered"]
+[connection signal="body_entered" from="Spike/SpikeTrigger" to="." method="_on_spike_trigger_body_entered"]
+[connection signal="body_entered" from="Spike2/SpikeTrigger1" to="." method="_on_spike_trigger_1_body_entered"]
+[connection signal="body_entered" from="Spike3/SpikeTrigger2" to="." method="_on_spike_trigger_2_body_entered"]
+[connection signal="body_entered" from="GroundOpenTrigger" to="." method="_on_ground_open_trigger_body_entered"]
+[connection signal="body_entered" from="GroundFreeTrigger" to="." method="_on_ground_free_trigger_body_entered"]
+[connection signal="pressed" from="UI/PauseButton" to="." method="_on_pause_button_pressed"]
+
+[editable path="UI/GameEnd"]

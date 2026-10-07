@@ -130,30 +130,6 @@ theme_override_font_sizes/font_size = 15
 text = "LEVEL
 12"
 
-[node name="Level13Button" type="Button" parent="SecondRow" unique_id=415868902]
-layout_mode = 2
-theme_override_constants/line_spacing = 14
-theme_override_fonts/font = ExtResource("1_mk87e")
-theme_override_font_sizes/font_size = 15
-text = "LEVEL
-13"
-
-[node name="Level14Button" type="Button" parent="SecondRow" unique_id=672912375]
-layout_mode = 2
-theme_override_constants/line_spacing = 14
-theme_override_fonts/font = ExtResource("1_mk87e")
-theme_override_font_sizes/font_size = 15
-text = "LEVEL
-14"
-
-[node name="Level15Button" type="Button" parent="SecondRow" unique_id=310216324]
-layout_mode = 2
-theme_override_constants/line_spacing = 14
-theme_override_fonts/font = ExtResource("1_mk87e")
-theme_override_font_sizes/font_size = 15
-text = "LEVEL
-15"
-
 [node name="MenuMusic" type="AudioStreamPlayer2D" parent="." unique_id=1311317492]
 stream = ExtResource("3_f7cvi")
 autoplay = true
@@ -170,6 +146,3 @@ autoplay = true
 [connection signal="pressed" from="SecondRow/Level10Button" to="." method="_on_level_10_button_pressed"]
 [connection signal="pressed" from="SecondRow/Level11Button" to="." method="_on_level_11_button_pressed"]
 [connection signal="pressed" from="SecondRow/Level12Button" to="." method="_on_level_12_button_pressed"]
-[connection signal="pressed" from="SecondRow/Level13Button" to="." method="_on_level_13_button_pressed"]
-[connection signal="pressed" from="SecondRow/Level14Button" to="." method="_on_level_14_button_pressed"]
-[connection signal="pressed" from="SecondRow/Level15Button" to="." method="_on_level_15_button_pressed"]

@@ -108,9 +108,7 @@ position = Vector2(506, 624)
 [connection signal="body_entered" from="HoverGround/HoverTrigger" to="." method="_on_hover_trigger_body_entered"]
 [connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]
 [connection signal="body_entered" from="ReturnSpike/ControlResetTrigger" to="." method="_on_control_reset_trigger_body_entered"]
-[connection signal="pressed" from="UI/WinnerScreen/NextButton" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="UI/PauseButton" to="." method="_on_pause_button_pressed"]
 
 [editable path="Exit"]
 [editable path="ReturnSpike"]
-[editable path="UI/WinnerScreen"]

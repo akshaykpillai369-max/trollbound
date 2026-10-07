@@ -92,9 +92,6 @@ shape = SubResource("RectangleShape2D_unhky")
 [node name="Exit" parent="." unique_id=161210779 instance=ExtResource("9_njina")]
 position = Vector2(-455, 276)
 
-[connection signal="pressed" from="UI/WinnerScreen/NextButton" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="UI/PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="body_entered" from="ChaseTrigger" to="." method="_on_chase_trigger_body_entered"]
 [connection signal="body_entered" from="DeathTriggerGround/DeathTrigger" to="." method="_on_death_trigger_body_entered"]
-
-[editable path="UI/WinnerScreen"]

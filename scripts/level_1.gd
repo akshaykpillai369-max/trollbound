@@ -20,12 +20,6 @@ func show_win_screen():
 	$Player.set_physics_process(false)
 	$UI/WinnerScreen.show()	
 
-
-func _on_next_button_pressed() -> void:
-	get_tree().paused = false
-	get_tree().change_scene_to_file("res://levels/level2.tscn")
-
-
 func _on_troll_trigger_2_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		$TrollSpike.show()

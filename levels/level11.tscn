@@ -102,7 +102,4 @@ stream = ExtResource("2_triof")
 [connection signal="body_entered" from="TopGround/DieTrigger" to="." method="_on_die_trigger_body_entered"]
 [connection signal="body_entered" from="RightSideGround/DieTrigger" to="." method="_on_die_trigger_body_entered"]
 [connection signal="body_entered" from="ExitGround/Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="pressed" from="UI/WinnerScreen/NextButton" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="UI/PauseButton" to="." method="_on_pause_button_pressed"]
-
-[editable path="UI/WinnerScreen"]

@@ -36,11 +36,6 @@ func show_win_screen():
 	$Player.set_physics_process(false)
 	$UI/WinnerScreen.show()
 	
-func _on_next_button_pressed() -> void:
-	get_tree().paused = false
-	get_tree().change_scene_to_file("res://levels/level3.tscn")
-
-
 func _on_pause_button_pressed() -> void:
 	$UI/PauseMenu.show()
 	get_tree().paused = true
