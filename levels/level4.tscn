@@ -26,8 +26,8 @@ stream = ExtResource("2_3cb6x")
 
 [node name="Player" parent="." unique_id=694940250 instance=ExtResource("2_lpgdq")]
 position = Vector2(333, 219)
-death_y = 400.0
 reverse_controls = true
+death_y = 400.0
 
 [node name="VerticalGround" parent="." unique_id=1210730134 instance=ExtResource("3_1jw75")]
 position = Vector2(848, 121.000015)

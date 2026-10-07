@@ -16,5 +16,5 @@ func _on_body_entered(body: Node2D) -> void:
 			$Door.play()
 			$DoorSound.play()
 			get_tree().paused = true
-			get_parent().show_win_screen()
+			get_tree().current_scene.show_win_screen()
 		

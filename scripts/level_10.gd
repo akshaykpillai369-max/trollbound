@@ -83,7 +83,7 @@ func _on_ground_gone_2_trigger_body_entered(body: Node2D) -> void:
 		tween.tween_property($StaticBody2D7, "position:y", $StaticBody2D7.position.y + 400, 0.4)
 
 func show_win_screen():
-	Settings.highest_unlocked_level = max(Settings.highest_unlocked_level, 10)
+	Settings.highest_unlocked_level = max(Settings.highest_unlocked_level, 11)
 	Settings.save_progress()
 	$Player.set_physics_process(false)
 	$UI/WinnerScreen.show()
@@ -94,4 +94,4 @@ func _on_pause_button_pressed() -> void:
 	
 func _on_next_button_pressed() -> void:
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://levels/level10.tscn")
+	get_tree().change_scene_to_file("res://levels/level11.tscn")

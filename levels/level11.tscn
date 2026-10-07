@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://cnnej0ys5xsj7"]
+
+[ext_resource type="PackedScene" uid="uid://b8cuttrr7owoe" path="res://scenes/ground.tscn" id="1_q47jv"]
+[ext_resource type="Script" uid="uid://bswc3it77ir7c" path="res://scripts/level_11.gd" id="1_triof"]
+[ext_resource type="AudioStream" uid="uid://b6n2wnkwb30lc" path="res://assets/sounds/overworld_theme.ogg" id="2_triof"]
+[ext_resource type="PackedScene" uid="uid://c32sv2neaa3e4" path="res://scenes/player.tscn" id="3_qy1he"]
+[ext_resource type="PackedScene" uid="uid://c0hegemm1vd4b" path="res://scenes/exit.tscn" id="4_q47jv"]
+[ext_resource type="PackedScene" uid="uid://gpqdputycit2" path="res://scenes/death_screen.tscn" id="6_eqsdu"]
+[ext_resource type="PackedScene" uid="uid://d24ggyj8i4k2e" path="res://scenes/winner_screen.tscn" id="7_o3uw6"]
+[ext_resource type="PackedScene" uid="uid://djmbhmvqa6m5" path="res://scenes/pause_menu.tscn" id="8_ttkh6"]
+[ext_resource type="FontFile" uid="uid://dvrkigp4rd1xo" path="res://assets/fonts/PressStart2P-Regular.ttf" id="9_8eckb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_unhky"]
+size = Vector2(421.82117, 38.43216)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n7nmp"]
+size = Vector2(117.5, 306.75)
+
+[node name="Level11" type="Node2D" unique_id=1300389449]
+script = ExtResource("1_triof")
+
+[node name="Ground" parent="." unique_id=1210730134 instance=ExtResource("1_q47jv")]
+position = Vector2(-1450, -244)
+scale = Vector2(2, 2)
+
+[node name="TopGround" parent="." unique_id=1562001411 instance=ExtResource("1_q47jv")]
+position = Vector2(-1003, -1012)
+scale = Vector2(2.7, 2.7)
+
+[node name="DieTrigger" type="Area2D" parent="TopGround" unique_id=1651680347]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopGround/DieTrigger" unique_id=355603467]
+position = Vector2(597.7778, 365.92615)
+scale = Vector2(1.0000007, 1.0000007)
+shape = SubResource("RectangleShape2D_unhky")
+
+[node name="LeftSideGround" parent="." unique_id=215259604 instance=ExtResource("1_q47jv")]
+position = Vector2(731, -810.00006)
+rotation = 1.569051
+scale = Vector2(2, 2)
+
+[node name="RightSideGround" parent="." unique_id=1576805631 instance=ExtResource("1_q47jv")]
+position = Vector2(1881.0001, -827.9999)
+rotation = 1.569051
+scale = Vector2(2, 2)
+
+[node name="DieTrigger" type="Area2D" parent="RightSideGround" unique_id=1672596772]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightSideGround/DieTrigger" unique_id=553798847]
+position = Vector2(669.35254, 364.63092)
+scale = Vector2(1.0000007, 1.0000007)
+shape = SubResource("RectangleShape2D_unhky")
+
+[node name="LevelMusic" type="AudioStreamPlayer2D" parent="." unique_id=2066903162]
+stream = ExtResource("2_triof")
+
+[node name="Player" parent="." unique_id=694940250 instance=ExtResource("3_qy1he")]
+position = Vector2(-13, 218)
+current_speed = 80.0
+both_directions_right = true
+flap_mode = true
+
+[node name="ExitGround" type="Node2D" parent="." unique_id=1538501]
+
+[node name="Ground2" parent="ExitGround" unique_id=457285854 instance=ExtResource("1_q47jv")]
+position = Vector2(362, -253)
+scale = Vector2(2, 2)
+
+[node name="Exit" parent="ExitGround" unique_id=161210779 instance=ExtResource("4_q47jv")]
+position = Vector2(836, 266)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D" type="Area2D" parent="ExitGround" unique_id=628073718]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitGround/Area2D" unique_id=1248350533]
+position = Vector2(950, 397.375)
+shape = SubResource("RectangleShape2D_n7nmp")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=346187619]
+
+[node name="DeathScreen" parent="UI" unique_id=621254565 instance=ExtResource("6_eqsdu")]
+
+[node name="WinnerScreen" parent="UI" unique_id=162556210 instance=ExtResource("7_o3uw6")]
+
+[node name="PauseMenu" parent="UI" unique_id=431796501 instance=ExtResource("8_ttkh6")]
+process_mode = 2
+visible = false
+position = Vector2(30, -7)
+
+[node name="PauseButton" type="Button" parent="UI" unique_id=333616208]
+offset_left = 990.0
+offset_top = 3.0
+offset_right = 1148.0
+offset_bottom = 43.0
+theme_override_fonts/font = ExtResource("9_8eckb")
+theme_override_font_sizes/font_size = 20
+text = "PAUSE"
+
+[node name="LevelMusic2" type="AudioStreamPlayer2D" parent="." unique_id=1614202705]
+stream = ExtResource("2_triof")
+
+[connection signal="body_entered" from="TopGround/DieTrigger" to="." method="_on_die_trigger_body_entered"]
+[connection signal="body_entered" from="RightSideGround/DieTrigger" to="." method="_on_die_trigger_body_entered"]
+[connection signal="body_entered" from="ExitGround/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="pressed" from="UI/WinnerScreen/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="UI/PauseButton" to="." method="_on_pause_button_pressed"]
+
+[editable path="UI/WinnerScreen"]

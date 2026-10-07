@@ -1,0 +1,113 @@
+[gd_scene format=3 uid="uid://c68i1amiihvy3"]
+
+[sub_resource type="GDScript" id="GDScript_mom7o"]
+script/source = "extends Area2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.name == \"Player\":
+		print(\"TELEPORTING\")
+		$AnimatedSprite2D.play(\"teleport\")
+		await $AnimatedSprite2D.animation_finished
+		print(\"MOVING PLAYER\")
+		body.global_position = $Destination.global_position
+"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_w4hbs"]
+load_path = "res://.godot/imported/teleport.png-d6315f51d8f1de92466b37a446159d50.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ayim"]
+atlas = SubResource("CompressedTexture2D_w4hbs")
+region = Rect2(0, 0, 220, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kyeu7"]
+atlas = SubResource("CompressedTexture2D_w4hbs")
+region = Rect2(220, 0, 220, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfydb"]
+atlas = SubResource("CompressedTexture2D_w4hbs")
+region = Rect2(440, 0, 220, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_he0bt"]
+atlas = SubResource("CompressedTexture2D_w4hbs")
+region = Rect2(660, 0, 220, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vm8s4"]
+atlas = SubResource("CompressedTexture2D_w4hbs")
+region = Rect2(880, 0, 220, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hg2k5"]
+atlas = SubResource("CompressedTexture2D_w4hbs")
+region = Rect2(1100, 0, 220, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6o8a4"]
+atlas = SubResource("CompressedTexture2D_w4hbs")
+region = Rect2(1320, 0, 220, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vsplj"]
+atlas = SubResource("CompressedTexture2D_w4hbs")
+region = Rect2(1540, 0, 220, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n7nmp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ayim")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kyeu7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfydb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_he0bt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vm8s4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hg2k5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6o8a4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vsplj")
+}],
+"loop": 0,
+"name": &"teleport",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n7nmp"]
+size = Vector2(107.125, 108.625)
+
+[node name="Teleport" type="Area2D" unique_id=1272396612]
+script = SubResource("GDScript_mom7o")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1062199528]
+position = Vector2(756.50006, 265)
+scale = Vector2(0.4318185, 0.4895834)
+sprite_frames = SubResource("SpriteFrames_n7nmp")
+animation = &"teleport"
+autoplay = "teleport"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1178252430]
+position = Vector2(765, 267)
+shape = SubResource("RectangleShape2D_n7nmp")
+
+[node name="Destination" type="Marker2D" parent="." unique_id=1744343627]
+position = Vector2(262, 224)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
